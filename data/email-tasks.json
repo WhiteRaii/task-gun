@@ -1,0 +1,26 @@
+{
+  "date": "2026-07-08",
+  "generated_at": "2026-07-08T07:05:00",
+  "tasks": [
+    {
+      "id": "email_20260708_001",
+      "priority": 1,
+      "description": "ตอบ email ยืนยันกำหนดส่งเอกสาร PA โครงการ SR269",
+      "from": "pm@gunkul.co.th",
+      "subject": "Re: เร่งด่วน — เอกสาร PA SR269 กรมส่งเสริมฯ",
+      "deadline": "วันนี้",
+      "project": "SR269",
+      "type": "email"
+    },
+    {
+      "id": "email_20260708_002",
+      "priority": 2,
+      "description": "ส่งใบเสนอราคา Vendor สำหรับ PV Mounting SRP Polypack",
+      "from": "vendor@sfs.com",
+      "subject": "Quotation PV Mounting SR259",
+      "deadline": null,
+      "project": "SR259",
+      "type": "email"
+    }
+  ]
+}
