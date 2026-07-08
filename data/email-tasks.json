@@ -1,116 +1,116 @@
 {
-  "date": "2026-07-08",
-  "generated_at": "2026-07-08T07:59:28",
-  "tasks": [
-    {
-      "id": "email_20260708_001",
-      "priority": 1,
-      "description": "รวบรวมใบเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ (Sunforson ถามมุม 10 องศา ตอบแล้ว) —"ต้องได้ครบก่อน 10 ก.ค.",
-      "from": "thanakrit.kha@gunkul.com",
-      "subject": "[Urgent]ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
-      "deadline": "10-07-2026",
-      "project": "กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_002",
-      "priority": 1,
-      "description": "แจ้งทีมคลัง/โลจิสติกส์ส่งสินค้าอุปกรณ์ล่อฟ้า (CCPO26-000857) เข้าโครงการ GFPT ภายใน 9/7/2026 — ที่อยู่แจ้งใน email แล้ว",
-      "from": "khemakorn.tas@gunkul.com",
-      "subject": "Re: Purchase Order No. [CCPO26-000857] - [Lightning Equipment at GFPT project]",
-      "deadline": "09-07-2026",
-      "project": "Solar ROOFTOP GFPT",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_003",
-      "priority": 2,
-      "description": "รีวิวใบเสนอราคางานติดตั้ง Solar Rooftop SCB สาขาถนนรัตนาธิเบศร์ (51.48 kWp) จาก ธนิน อิ่มคล้าย —"ยังไม่ได้อ่าน",
-      "from": "im.thanin11@gmail.com",
-      "subject": "Re: RFQ - โครงการ SCB สาขาถนนรัตนาธิเบศร์",
-      "deadline": "20-07-2026",
-      "project": "SCB สาขาถนนรัตนาธิเบศร์",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_004",
-      "priority": 2,
-      "description": "เตรียมข้อมูลสำหรับ Meeting with HW (AIS Project) - Contract discussion ห้อง Google Meet วันศุกร์ 10 ก.ค. 14:00-15:00",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "คำเชิญ: Meeting with HW (AIS Project) - Contract discussion วัน ศุกร์ 10 ก.ค. 2026",
-      "deadline": "10-07-2026",
-      "project": "AIS Project",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_005",
-      "priority": 2,
-      "description": "หา supplier อุปกรณ์โครงการ STA พม่า (Tender PU) ตามรายละเอียดไฟล์แนบ —"ทีม Tech ส่งขอบเขตมาให้แล้ว",
-      "from": "jirachawin.pro@gunkul.com",
-      "subject": "[Tender - PU] รายละเอียดอุปกรณ์ที่จะนำเข้าโครงการ STA พม่า",
-      "deadline": null,
-      "project": "STA พม่า",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_006",
-      "priority": 2,
-      "description": "รวบรวมใบเสนอราคาตู้ไฟโครงการ Shunyi (4,397.76 kWp) จาก vendor ต่างๆ — deadline 13/07/2026",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "รบกวนเสนอราคางานโครงการ Shunyi ขนาด 4,397.76 kWp",
-      "deadline": "13-07-2026",
-      "project": "Shunyi 4,397.76 kWp",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_007",
-      "priority": 2,
-      "description": "ส่ง RFQ ขอใบเสนอราคา PV MODULE JINKO JKM620N-66HL4M-BDV จำนวน 4,000 PCS (GSC ส่งออกไปแล้ว รอ QTN กลับ)",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "REQ QTN : PV MODULE JINKO _ JKM620N-66HL4M-BDV",
-      "deadline": null,
-      "project": null,
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_008",
-      "priority": 2,
-      "description": "ติดตาม Activity number โครงการ Shunyi : ค่าบริการทำรายงาน CoP และค่าบริการประชาพิจารณ์ — ได้รับ ACT-004805, SV-01-MPS แล้ว ต้องเปิด PR",
-      "from": "pimchanok.jin@gunkul.com",
-      "subject": "ติดตาม : Activity number และ Project category โครงการ Shunyi",
-      "deadline": null,
-      "project": "Shunyi",
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_009",
-      "priority": 3,
-      "description": "ประชุม Meeting with Chicko ห้อง Infinite @ 44th FL (OCC) — 14 ก.ค. 2026 13:30-14:30 PIN: 1564",
-      "from": "meetingroom@gunkul.com",
-      "subject": "คำเชิญ: Meeting with Chicko วัน อังคาร 14 ก.ค. 2026 1:30pm - 2:30pm",
-      "deadline": "14-07-2026",
-      "project": null,
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_010",
-      "priority": 3,
-      "description": "อ่านและปรับใช้คู่มือการบันทึก Price Approval ระบุทศนิยม 4 ตำแหน่ง — P.Arm รบกวนเพิ่มใน WI ด้วย",
-      "from": "watcharaphong.noi@gunkul.com",
-      "subject": "นำส่งคู่มือการ ระบุใช้งาน ทศนิยม 4 ตำแหน่งของ Price approved",
-      "deadline": null,
-      "project": null,
-      "type": "email"
-    },
-    {
-      "id": "email_20260708_011",
-      "priority": 3,
-      "description": "เช็คจำนวน FR-CV 0.61KV สาย LOI 6 โครงการ กับ Bangkok Cable (Patinya) — มีของพร้อมส่ง รอยืนยันจำนวนต่อครั้งต่อจังหวัด",
-      "from": "Patinya.s@bangkokcable.com",
-      "subject": "Re: [EXTERNAL]Re: [EXTERNAL]Re: [EXTERNAL]Fwd: ราคาสายไฟ เพื่อทำ LOI จำนวน 6 โครงการ GUNKUL",
-      "deadline": null,
-      "project": null,
-      "type": "email"
-    }
-  ]
+    "date": "2026-07-08",
+    "generated_at": "2026-07-08T07:59:28",
+    "tasks": [
+          {
+                  "id": "email_20260708_001",
+                  "priority": 1,
+                  "description": "รวบรวมใบเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ (Sunforson ถามมุม 10 องศา ตอบแล้ว) — ต้องได้ครบก่อน 10 ก.ค.",
+                  "from": "thanakrit.kha@gunkul.com",
+                  "subject": "[Urgent]ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
+                  "deadline": "10-07-2026",
+                  "project": "กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_002",
+                  "priority": 1,
+                  "description": "แจ้งทีมคลัง/โลจิสติกส์ส่งสินค้าอุปกรณ์ล่อฟ้า (CCPO26-000857) เข้าโครงการ GFPT ภายใน 9/7/2026 — ที่อยู่แจ้งใน email แล้ว",
+                  "from": "khemakorn.tas@gunkul.com",
+                  "subject": "Re: Purchase Order No. [CCPO26-000857] - [Lightning Equipment at GFPT project]",
+                  "deadline": "09-07-2026",
+                  "project": "Solar ROOFTOP GFPT",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_003",
+                  "priority": 2,
+                  "description": "รีวิวใบเสนอราคางานติดตั้ง Solar Rooftop SCB สาขาถนนรัตนาธิเบศร์ (51.48 kWp) จาก ธนิน อิ่มคล้าย — ยังไม่ได้อ่าน",
+                  "from": "im.thanin11@gmail.com",
+                  "subject": "Re: RFQ - โครงการ SCB สาขาถนนรัตนาธิเบศร์",
+                  "deadline": "20-07-2026",
+                  "project": "SCB สาขาถนนรัตนาธิเบศร์",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_004",
+                  "priority": 2,
+                  "description": "เตรียมข้อมูลสำหรับ Meeting with HW (AIS Project) - Contract discussion ห้อง Google Meet วันศุกร์ 10 ก.ค. 14:00-15:00",
+                  "from": "thanathip.won@gunkul.com",
+                  "subject": "คำเชิญ: Meeting with HW (AIS Project) - Contract discussion วัน ศุกร์ 10 ก.ค. 2026",
+                  "deadline": "10-07-2026",
+                  "project": "AIS Project",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_005",
+                  "priority": 2,
+                  "description": "หา supplier อุปกรณ์โครงการ STA พม่า (Tender PU) ตามรายละเอียดไฟล์แนบ — ทีม Tech ส่งขอบเขตมาให้แล้ว",
+                  "from": "jirachawin.pro@gunkul.com",
+                  "subject": "[Tender - PU] รายละเอียดอุปกรณ์ที่จะนำเข้าโครงการ STA พม่า",
+                  "deadline": null,
+                  "project": "STA พม่า",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_006",
+                  "priority": 2,
+                  "description": "รวบรวมใบเสนอราคาตู้ไฟโครงการ Shunyi (4,397.76 kWp) จาก vendor ต่างๆ — deadline 13/07/2026",
+                  "from": "pastraporn.iss@gunkul.com",
+                  "subject": "รบกวนเสนอราคางานโครงการ Shunyi ขนาด 4,397.76 kWp",
+                  "deadline": "13-07-2026",
+                  "project": "Shunyi 4,397.76 kWp",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_007",
+                  "priority": 2,
+                  "description": "ส่ง RFQ ขอใบเสนอราคา PV MODULE JINKO JKM620N-66HL4M-BDV จำนวน 4,000 PCS (GSC ส่งออกไปแล้ว รอ QTN กลับ)",
+                  "from": "wanvisa.inm@gunkul.com",
+                  "subject": "REQ QTN : PV MODULE JINKO _ JKM620N-66HL4M-BDV",
+                  "deadline": null,
+                  "project": null,
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_008",
+                  "priority": 2,
+                  "description": "ติดตาม Activity number โครงการ Shunyi : ค่าบริการทำรายงาน CoP และค่าบริการประชาพิจารณ์ — ได้รับ ACT-004805, SV-01-MPS แล้ว ต้องเปิด PR",
+                  "from": "pimchanok.jin@gunkul.com",
+                  "subject": "ติดตาม : Activity number และ Project category โครงการ Shunyi",
+                  "deadline": null,
+                  "project": "Shunyi",
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_009",
+                  "priority": 3,
+                  "description": "ประชุม Meeting with Chicko ห้อง Infinite @ 44th FL (OCC) — 14 ก.ค. 2026 13:30-14:30 PIN: 1564",
+                  "from": "meetingroom@gunkul.com",
+                  "subject": "คำเชิญ: Meeting with Chicko วัน อังคาร 14 ก.ค. 2026 1:30pm - 2:30pm",
+                  "deadline": "14-07-2026",
+                  "project": null,
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_010",
+                  "priority": 3,
+                  "description": "อ่านและปรับใช้คู่มือการบันทึก Price Approval ระบุทศนิยม 4 ตำแหน่ง — P.Arm รบกวนเพิ่มใน WI ด้วย",
+                  "from": "watcharaphong.noi@gunkul.com",
+                  "subject": "นำส่งคู่มือการ ระบุใช้งาน ทศนิยม 4 ตำแหน่งของ Price approved",
+                  "deadline": null,
+                  "project": null,
+                  "type": "email"
+          },
+          {
+                  "id": "email_20260708_011",
+                  "priority": 3,
+                  "description": "เช็คจำนวน FR-CV 0.61KV สาย LOI 6 โครงการ กับ Bangkok Cable (Patinya) — มีของพร้อมส่ง รอยืนยันจำนวนต่อครั้งต่อจังหวัด",
+                  "from": "Patinya.s@bangkokcable.com",
+                  "subject": "Re: [EXTERNAL]Re: [EXTERNAL]Re: [EXTERNAL]Fwd: ราคาสายไฟ เพื่อทำ LOI จำนวน 6 โครงการ GUNKUL",
+        "deadline": null,
+        "project": null,
+        "type": "email"
+}
+]
 }
