@@ -20,12 +20,15 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .header .subtitle { font-size: 11px; opacity: 0.7; margin-top: 3px; }
 .header-meta { text-align: right; font-size: 11px; opacity: 0.85; line-height: 1.8; }
 .header-meta .data-status { font-size: 12px; }
-.refresh-btn {
+.header-actions { display:flex; gap:6px; justify-content:flex-end; margin-top:4px; align-items:center; }
+.refresh-btn, .add-task-btn {
   background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
   color: #fff; border-radius: 6px; padding: 3px 11px; cursor: pointer;
-  font-size: 11px; margin-top: 4px; transition: background 0.2s;
+  font-size: 11px; transition: background 0.2s;
 }
-.refresh-btn:hover { background: rgba(255,255,255,0.28); }
+.refresh-btn:hover, .add-task-btn:hover { background: rgba(255,255,255,0.28); }
+.add-task-btn { background: rgba(72,187,120,0.35); border-color: rgba(72,187,120,0.6); font-weight: 700; }
+.add-task-btn:hover { background: rgba(72,187,120,0.5); }
 .progress-area { margin-top: 12px; }
 .progress-label { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 5px; opacity: 0.9; }
 .progress-bar-bg { background: rgba(255,255,255,0.18); border-radius: 99px; height: 7px; }
@@ -68,6 +71,8 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .sh-purple { background: #553c9a; }
 .sh-red    { background: #c53030; }
 .sh-blue   { background: #2b6cb0; }
+.sh-green  { background: #2f855a; }
+.sh-gray   { background: #4a5568; }
 
 .subsec-label {
   background: #edf2f7; padding: 5px 16px;
@@ -89,8 +94,10 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .task-card[data-cat="waiting_pa"]  { border-left-color: #f6e05e; }
 .task-card[data-cat="waiting_po"]  { border-left-color: #f6ad55; }
 .task-card[data-type="email"]      { border-left-color: #b794f4; }
+.task-card[data-type="manual"]     { border-left-color: #4fd1c5; }
 .task-card[data-priority="1"]      { border-left-color: #e53e3e; border-left-width: 5px; }
 .task-card[data-hist="1"]          { border-left-color: #a0aec0; }
+.task-card[data-fyi="1"]           { border-left-color: #9f7aea; background: #faf5ff; }
 
 .task-top { display: flex; align-items: flex-start; gap: 11px; }
 .task-checkbox { width: 17px; height: 17px; flex-shrink: 0; margin-top: 3px; cursor: pointer; accent-color: #38a169; }
@@ -110,6 +117,8 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .b-email-u    { background: #e9d8fd; color: #553c9a; }
 .b-email-n    { background: #c6f6d5; color: #276749; }
 .b-hist       { background: #edf2f7; color: #718096; font-weight: 400; }
+.b-fyi        { background: #e9d8fd; color: #6b46c1; }
+.b-manual     { background: #c6f7f1; color: #1a7d72; }
 
 /* Deadline badge */
 .dl { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 5px; margin-left: 7px; vertical-align: middle; }
@@ -139,22 +148,42 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .task-note textarea:focus { border-color: #63b3ed; background: #fff; }
 .task-note textarea::placeholder { color: #cbd5e0; }
 
+/* Delete button (manual tasks only) */
+.task-delete {
+  float: right; background: none; border: none; color: #a0aec0;
+  font-size: 15px; cursor: pointer; line-height: 1; padding: 2px 4px;
+}
+.task-delete:hover { color: #e53e3e; }
+
 .empty-sec { text-align: center; padding: 18px; color: #a0aec0; font-size: 13px; background: #fff; border-radius: 0 0 10px 10px; }
 .footer { text-align: center; font-size: 11px; color: #a0aec0; margin-top: 40px; }
+
+/* Notices (FYI, not White's job) */
+.notice-card {
+  background: #f7fafc; border-left: 3px solid #cbd5e0;
+  padding: 8px 14px; border-bottom: 1px solid #e2e8f0;
+  font-size: 11.5px; color: #718096;
+}
+.notice-card:last-child { border-radius: 0 0 10px 10px; border-bottom: none; }
+.notice-card .n-from { font-weight: 700; color: #4a5568; }
+.notice-card .n-subject { color: #718096; }
+.notice-card .n-note { margin-top: 2px; color: #a0aec0; }
 
 /* Config modal */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; display: none; align-items: center; justify-content: center; }
 .modal-overlay.open { display: flex; }
-.modal { background: #fff; border-radius: 12px; padding: 24px 28px; max-width: 540px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal { background: #fff; border-radius: 12px; padding: 24px 28px; max-width: 540px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-height: 86vh; overflow-y: auto; }
 .modal h2 { font-size: 16px; margin-bottom: 14px; }
 .modal label { font-size: 12px; color: #4a5568; display: block; margin-bottom: 4px; font-weight: 600; }
-.modal input {
+.modal input, .modal select, .modal textarea {
   width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;
-  font-size: 13px; font-family: monospace; margin-bottom: 12px; outline: none;
+  font-size: 13px; font-family: inherit; margin-bottom: 12px; outline: none;
 }
-.modal input:focus { border-color: #4299e1; }
+.modal textarea { min-height: 60px; resize: vertical; }
+.modal input:focus, .modal select:focus, .modal textarea:focus { border-color: #4299e1; }
 .modal .btn-row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 6px; }
 .btn-save { background: #3182ce; color: #fff; border: none; border-radius: 6px; padding: 8px 20px; cursor: pointer; font-size: 13px; }
+.btn-save.green { background: #38a169; }
 .btn-cancel { background: #edf2f7; color: #4a5568; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-size: 13px; }
 .config-hint { font-size: 11px; color: #718096; margin-bottom: 16px; line-height: 1.6; }
 .gear-btn { cursor: pointer; font-size: 16px; opacity: 0.7; }
@@ -172,8 +201,9 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
     <div class="header-meta">
       <div id="today-date">—</div>
       <div class="data-status" id="data-status">⏳ กำลังโหลด...</div>
-      <div style="display:flex; gap:6px; justify-content:flex-end; margin-top:4px;">
+      <div class="header-actions">
         <span class="gear-btn" onclick="openConfig()" title="ตั้งค่า URL">⚙️</span>
+        <button class="add-task-btn" onclick="openAddTask()">➕ เพิ่ม Task</button>
         <button class="refresh-btn" onclick="location.reload()">🔄 รีเฟรช</button>
       </div>
     </div>
@@ -209,12 +239,37 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
   </div>
 </div>
 
+<!-- Add Task modal -->
+<div class="modal-overlay" id="add-task-modal">
+  <div class="modal">
+    <h2>➕ เพิ่ม Task ใหม่</h2>
+    <p class="config-hint">Task ที่เพิ่มเองจะถูกเก็บไว้ในเบราว์เซอร์นี้เท่านั้น (localStorage) — ไม่ได้ sync ไป GitHub เหมือนข้อมูลอัตโนมัติ ถ้าเปลี่ยนเครื่อง/เบราว์เซอร์จะไม่เห็น Task นี้</p>
+    <label>รายละเอียดงาน *</label>
+    <textarea id="at-desc" placeholder="เช่น ติดตามใบเสนอราคา Vendor X โครงการ Y"></textarea>
+    <label>โครงการ (ถ้ามี)</label>
+    <input type="text" id="at-project" placeholder="ชื่อโครงการ">
+    <label>Deadline (ถ้ามี)</label>
+    <input type="date" id="at-deadline">
+    <label>ความสำคัญ</label>
+    <select id="at-priority">
+      <option value="1">🔴 1 — ด่วนมาก</option>
+      <option value="2" selected>🟡 2 — ปกติ</option>
+      <option value="3">🟢 3 — ไม่เร่ง</option>
+    </select>
+    <div class="btn-row">
+      <button class="btn-cancel" onclick="closeAddTask()">ยกเลิก</button>
+      <button class="btn-save green" onclick="saveNewTask()">💾 บันทึก Task</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ═══════════════════════════════════════════
 //  CONFIG (stored in localStorage)
 // ═══════════════════════════════════════════
 const CFG_KEY = 'gunkul_config';
 const STATE_KEY = 'gunkul_tasks_v3';
+const MANUAL_KEY = 'gunkul_manual_tasks';
 
 function getConfig() {
   try {
@@ -249,7 +304,55 @@ function saveConfig() {
 }
 
 // ═══════════════════════════════════════════
-//  TASK STATE
+//  MANUAL TASKS (Add Task feature)
+// ═══════════════════════════════════════════
+function loadManualTasks() {
+  try { return JSON.parse(localStorage.getItem(MANUAL_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveManualTasks(list) { localStorage.setItem(MANUAL_KEY, JSON.stringify(list)); }
+
+function openAddTask() {
+  document.getElementById('at-desc').value = '';
+  document.getElementById('at-project').value = '';
+  document.getElementById('at-deadline').value = '';
+  document.getElementById('at-priority').value = '2';
+  document.getElementById('add-task-modal').classList.add('open');
+}
+function closeAddTask() { document.getElementById('add-task-modal').classList.remove('open'); }
+
+function saveNewTask() {
+  const desc = document.getElementById('at-desc').value.trim();
+  if (!desc) { alert('กรุณากรอกรายละเอียดงาน'); return; }
+  const project = document.getElementById('at-project').value.trim() || null;
+  const deadlineRaw = document.getElementById('at-deadline').value; // YYYY-MM-DD
+  let deadline = null;
+  if (deadlineRaw) {
+    const [y,m,d] = deadlineRaw.split('-');
+    deadline = `${d}-${m}-${y}`;
+  }
+  const priority = parseInt(document.getElementById('at-priority').value, 10);
+
+  const list = loadManualTasks();
+  const id = 'manual_' + Date.now();
+  list.push({
+    id, type: 'manual', description: desc, project, deadline,
+    priority, created_at: new Date().toISOString()
+  });
+  saveManualTasks(list);
+  closeAddTask();
+  location.reload();
+}
+
+function deleteManualTask(id) {
+  if (!confirm('ลบ Task นี้?')) return;
+  const list = loadManualTasks().filter(t => t.id !== id);
+  saveManualTasks(list);
+  location.reload();
+}
+
+// ═══════════════════════════════════════════
+//  TASK STATE (checkbox/notes)
 // ═══════════════════════════════════════════
 function loadState() {
   try { return JSON.parse(localStorage.getItem(STATE_KEY) || '{}'); }
@@ -302,6 +405,7 @@ function renderCard(t, state) {
   const cat  = t.category || '';
   const type = t.type || 'prpo';
   const hist = !!t.historical;
+  const fyi  = !!t.is_fyi;
 
   // Status badge
   let sb = '';
@@ -309,6 +413,8 @@ function renderCard(t, state) {
   else if (cat === 'po_incomplete') sb = '<span class="badge b-incomplete">In-complete (มี PO)</span>';
   else if (cat === 'waiting_pa')    sb = '<span class="badge b-waiting-pa">Waiting PA</span>';
   else if (cat === 'waiting_po')    sb = '<span class="badge b-waiting-po">Waiting PO</span>';
+  else if (type === 'manual')       sb = '<span class="badge b-manual">✍️ เพิ่มเอง</span>';
+  else if (fyi)                     sb = '<span class="badge b-fyi">🟣 FYI จากหัวหน้า</span>';
   else if (type === 'email' && t.priority <= 1) sb = '<span class="badge b-email-u">🔴 ด่วน</span>';
   else if (type === 'email')        sb = '<span class="badge b-email-n">📧 Email</span>';
   if (hist) sb += '<span class="badge b-hist">งานเดิม</span>';
@@ -316,12 +422,15 @@ function renderCard(t, state) {
   const dl  = t.deadline ? deadlineBadge(t.deadline) : '';
   const nxt = NEXT[cat] ? `<div class="task-next">${NEXT[cat]}</div>` : '';
   const rem = t.remarks   ? `<div class="task-rem">${t.remarks}</div>` : '';
+  const delBtn = type === 'manual' ? `<button class="task-delete" onclick="deleteManualTask('${t.id}')" title="ลบ Task นี้">✕</button>` : '';
 
   // Fields
   let flds = '';
   if (type === 'email') {
     flds = `<div class="task-field"><span class="lbl">จาก </span><span class="val">${t.from||'—'}</span></div>
             <div class="task-field"><span class="lbl">เรื่อง </span><span class="val">${t.subject||'—'}</span></div>`;
+  } else if (type === 'manual') {
+    flds = '';
   } else {
     flds = `<div class="task-field"><span class="lbl">PR No. </span><span class="val">${t.pr_no||'—'}</span></div>`;
     if (t.pa_no && t.pa_no !== '-') flds += `<div class="task-field"><span class="lbl">PA No. </span><span class="val">${t.pa_no}</span></div>`;
@@ -331,20 +440,26 @@ function renderCard(t, state) {
     if (t.date_pr) flds += `<div class="task-field"><span class="lbl">วันที่ PR </span><span class="val">${t.date_pr}</span></div>`;
   }
 
-  const eid = CSS.escape(t.id);
-
   return `
-<div class="task-card ${done?'done':''}" id="card-${t.id}" data-cat="${cat}" data-type="${type}" data-priority="${t.priority||0}" data-hist="${hist?1:0}">
+<div class="task-card ${done?'done':''}" id="card-${t.id}" data-cat="${cat}" data-type="${type}" data-priority="${t.priority||0}" data-hist="${hist?1:0}" data-fyi="${fyi?1:0}">
   <div class="task-top">
     <input type="checkbox" class="task-checkbox" id="chk-${t.id}" ${done?'checked':''} onchange="toggleTask('${t.id}',this)">
     <div class="task-main">
-      <div class="task-desc" id="desc-${t.id}">${t.description}${sb}${dl}</div>
+      <div class="task-desc" id="desc-${t.id}">${delBtn}${t.description}${sb}${dl}</div>
       ${t.project?`<div class="task-project">📁 ${t.project}</div>`:''}
       <div class="task-fields">${flds}</div>
       ${rem}${nxt}
       <div class="task-note"><textarea id="note-${t.id}" placeholder="บันทึกย่อ..." oninput="saveNote('${t.id}')">${s.note||''}</textarea></div>
     </div>
   </div>
+</div>`;
+}
+
+function renderNotice(n) {
+  return `
+<div class="notice-card">
+  <span class="n-from">${n.from||'—'}</span> · <span class="n-subject">${n.subject||''}</span>
+  ${n.note ? `<div class="n-note">${n.note}</div>` : ''}
 </div>`;
 }
 
@@ -401,32 +516,43 @@ function renderAll(prpoData, emailData) {
 
   // --- Email tasks ---
   const emailTasks = ((emailData||{}).tasks||[]).map(t => ({ ...t, type:'email' }));
+  const notices     = (emailData||{}).notices || [];
+
+  // --- Manual tasks (localStorage only) ---
+  const manualTasks = loadManualTasks().map(t => ({ ...t, type:'manual' }));
 
   // --- PR/PO tasks ---
   const prpoTasks = ((prpoData||{}).tasks||[]).map(t => ({ ...t, type:'prpo' }));
 
   // --- Register new tasks in state ---
   const freshIds = new Set();
-  [...emailTasks, ...prpoTasks].forEach(t => {
+  [...emailTasks, ...prpoTasks, ...manualTasks].forEach(t => {
     freshIds.add(t.id);
     if (!state[t.id]) state[t.id] = { first_seen: today };
     state[t.id]._data = t;           // save for carry-forward
   });
 
-  // --- Historical carry-forward: pending tasks not in today's file ---
+  // --- Historical carry-forward: pending prpo/email tasks not in today's file ---
   const histTasks = [];
   Object.entries(state).forEach(([id, v]) => {
-    if (!freshIds.has(id) && !v.completed && v._data) {
+    if (!freshIds.has(id) && !v.completed && v._data && v._data.type !== 'manual') {
       histTasks.push({ ...v._data, historical: true });
     }
   });
 
   saveState(state);
-  allTasks = [...emailTasks, ...prpoTasks, ...histTasks];
+  allTasks = [...emailTasks, ...prpoTasks, ...manualTasks, ...histTasks];
 
   // Sort PR/PO: with deadline first (ascending), then no deadline
   const withDL = prpoTasks.filter(t => t.deadline).sort((a,b)=>(daysUntil(a.deadline)??999)-(daysUntil(b.deadline)??999));
   const noDL   = prpoTasks.filter(t => !t.deadline);
+
+  // Sort manual tasks by priority then deadline
+  const manualSorted = [...manualTasks].sort((a,b)=>{
+    const pa=(a.priority||3), pb=(b.priority||3);
+    if (pa!==pb) return pa-pb;
+    return (daysUntil(a.deadline)??999)-(daysUntil(b.deadline)??999);
+  });
 
   // Stats
   const incCount   = prpoTasks.filter(t=>t.category==='no_pa'||t.category==='po_incomplete').length;
@@ -452,12 +578,30 @@ function renderAll(prpoData, emailData) {
     <div class="stat-card s-blue"><div class="num">${allTasks.length}</div><div class="lbl">ทั้งหมด</div></div>
   </div>`;
 
+  // Manual tasks section (always show, so Add Task is discoverable)
+  html += `<div class="section">
+    <div class="section-header sh-green">✍️ Task ที่เพิ่มเอง<span class="count">${manualSorted.length} รายการ</span></div>
+    ${manualSorted.length ? manualSorted.map(t=>renderCard(t,state)).join('') : '<div class="empty-sec">ยังไม่มี Task ที่เพิ่มเอง — กด "➕ เพิ่ม Task" มุมขวาบน</div>'}
+  </div>`;
+
   // Email section
   if (emailTasks.length > 0) {
-    const sorted = [...emailTasks].sort((a,b)=>(a.priority||3)-(b.priority||3));
+    const sorted = [...emailTasks].sort((a,b)=>{
+      const fa = a.is_fyi?1:0, fb = b.is_fyi?1:0;
+      if (fa!==fb) return fa-fb;
+      return (a.priority||3)-(b.priority||3);
+    });
     html += `<div class="section">
       <div class="section-header sh-purple">📧 Action Items จาก Email — วันนี้ต้องทำ<span class="count">${emailTasks.length} รายการ</span></div>
       ${sorted.map(t=>renderCard(t,state)).join('')}
+    </div>`;
+  }
+
+  // Notices (FYI, not White's task)
+  if (notices.length > 0) {
+    html += `<div class="section">
+      <div class="section-header sh-gray">🔔 แจ้งให้ทราบ (ไม่ใช่งานของคุณโดยตรง)<span class="count">${notices.length} รายการ</span></div>
+      ${notices.map(renderNotice).join('')}
     </div>`;
   }
 
@@ -465,7 +609,7 @@ function renderAll(prpoData, emailData) {
   if (prpoTasks.length > 0 || histTasks.length > 0) {
     const hasDeadlineTasks = withDL.length > 0;
     const headerBg = hasDeadlineTasks ? 'sh-red' : 'sh-blue';
-    html += `<div class="section"><div class="section-header ${headerBg}">📋 PR/PO Tasks — ทั้งหมดที่ยังค้างอยู่<span class="count">${allTasks.filter(t=>t.type!=='email').length} รายการ</span></div>`;
+    html += `<div class="section"><div class="section-header ${headerBg}">📋 PR/PO Tasks — ทั้งหมดที่ยังค้างอยู่<span class="count">${allTasks.filter(t=>t.type==='prpo').length} รายการ</span></div>`;
 
     if (withDL.length > 0) {
       html += `<div class="subsec-label">⏰ มีกำหนด Deadline — เรียงตามความเร่งด่วน</div>`;
