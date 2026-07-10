@@ -188,6 +188,16 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .config-hint { font-size: 11px; color: #718096; margin-bottom: 16px; line-height: 1.6; }
 .gear-btn { cursor: pointer; font-size: 16px; opacity: 0.7; }
 .gear-btn:hover { opacity: 1; }
+
+/* Nav tabs (multi-page site) */
+.nav-tabs { display: flex; gap: 6px; margin-top: 12px; }
+.nav-tab {
+  color: rgba(255,255,255,0.75); text-decoration: none; font-size: 12px; font-weight: 600;
+  padding: 6px 14px; border-radius: 7px 7px 0 0; background: rgba(255,255,255,0.08);
+  transition: background 0.15s, color 0.15s;
+}
+.nav-tab:hover { background: rgba(255,255,255,0.18); color: #fff; }
+.nav-tab.active { background: #f0f4f8; color: #1a5276; }
 </style>
 </head>
 <body>
@@ -214,6 +224,10 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
       <span id="progress-text">0 / 0 tasks</span>
     </div>
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="nav-tabs">
+    <a class="nav-tab active" href="index.html">📋 Daily Tasks</a>
+    <a class="nav-tab" href="material.html">🔌 DC Cable Forecast</a>
   </div>
 </div>
 
