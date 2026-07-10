@@ -1,159 +1,138 @@
 {
-  "date": "2026-07-09",
-  "generated_at": "2026-07-09T07:08:00",
+  "date": "2026-07-10",
+  "generated_at": "2026-07-10T07:07:00",
   "notices": [
     {
-      "id": "notice_20260709_001",
+      "id": "notice_20260710_001",
       "from": "wanvisa.inm@gunkul.com",
-      "subject": "Re: Re: <<URGENT>> PO#THPO26-000134 FNC-GULF1",
-      "note": "งานของ Wanvisa เอง — ประสานภายในเรื่องยืนยัน ship-to/QTY rapid shutdown กับทีม Sungrow, White ถูก CC ไว้"
+      "subject": "REQ QTN : PV MODULE JINKO _ JKM620N-66HL4M-BDV",
+      "note": "Wanvisa เจรจาราคา PV Module Jinko รุ่น JKM620N/Tiger Neo กับ Jinko Solar โดยตรง White ถูก CC ไว้เท่านั้น"
     },
     {
-      "id": "notice_20260709_002",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Re: ตอบกลับ: ตอบกลับ: ตอบกลับ: นำส่ง Comment ราคาตู้ โครงการ Hon Chuan",
-      "note": "งานของ Kae เอง — ส่ง comment เพิ่ม Emergency Stop Switch ให้ผู้รับเหมาโดยตรง"
-    },
-    {
-      "id": "notice_20260709_003",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Re: << Urgent >> รบกวนเสนอราคางานโครงการ Hon chuan",
-      "note": "งานของ Kae เอง — แจ้งแก้ไข comment ใบเสนอราคาตู้กับผู้รับเหมาโดยตรง"
-    },
-    {
-      "id": "notice_20260709_004",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Re: [Tender - PU] สืบราคาผรม. โครงการ ถาวรอุตสาหกรรมยางพารา (1982) จำกัด หนองคาย",
-      "note": "งานของ Kae เอง — นำส่งใบเสนอราคาผรม. (Azimuth, KTS, Unigreen Asia, FS Fusion) ให้พี่ปิง"
-    },
-    {
-      "id": "notice_20260709_005",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Re: [Tender - PU] สืบราคาผรม. โครงการ ถาวรอุตสาหกรรมยางพารา (1982) จำกัด สุราษฎร์ธานี",
-      "note": "งานของ Kae เอง — นำส่งใบเสนอราคาผรม. (BTS, KTS, Asia) ให้พี่ปิง"
-    },
-    {
-      "id": "notice_20260709_006",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Re: SY: สอบราคา ACP, CB, PQM",
-      "note": "งานของ Kae เอง — ขอภาพหน้างานเพิ่มเติมจากพี่เตสำหรับงาน Modify"
-    },
-    {
-      "id": "notice_20260709_007",
+      "id": "notice_20260710_002",
       "from": "wanvisa.inm@gunkul.com",
-      "subject": "Re: REQ QTN : PV MODULE JINKO _ JKM620N-66HL4M-BDV",
-      "note": "งานของ Wanvisa เอง — ขอราคา PV Module 635W/640W จาก Jinko Solar โดยตรง"
+      "subject": "Draft LC : Purchase Order PO#THPO26-000116 Inverter for FNC.",
+      "note": "Wanvisa ดำเนินการ Draft LC กับ Sungrow สำหรับ PO#THPO26-000116/128 โดยตรง White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260710_003",
+      "from": "wanvisa.inm@gunkul.com",
+      "subject": "<<URGENT>> PO#THPO26-000134 FNC-GULF1",
+      "note": "Wanvisa ประสานงาน Draft LC กับ Sungrow สำหรับ PO#THPO26-000134 โดยตรง White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260710_004",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "<< Urgent >> รบกวนเสนอราคางานโครงการ Hon chuan",
+      "note": "P'Kae เจรจาราคาตู้ไฟฟ้ากับผู้รับเหมา NP Electric โครงการ Hon Chuan โดยตรง White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260710_005",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "นำส่ง Comment ราคาตู้ โครงการ OVT (One Venture)",
+      "note": "P'Kae ส่ง comment ราคาตู้โครงการ One Venture ให้ผู้รับเหมา 4 ราย กำหนดตอบกลับภายใน 13/7/26"
+    },
+    {
+      "id": "notice_20260710_006",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "นำส่งใบสั่งซื้อ เลขที่ CCPO26-001291",
+      "note": "P'Kae ส่ง PO ให้ DPT Energy งาน Relocate Inverter Room Murata Farm Zone5"
+    },
+    {
+      "id": "notice_20260710_007",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Purchase Order No. [CDPO26-000375]",
+      "note": "P'Kae ส่ง PO ให้ Indochina Engineering งานอุปกรณ์โครงการ Groof (Stock เบรกเกอร์) — vendor ยืนยันรับ PO แล้ว"
+    },
+    {
+      "id": "notice_20260710_008",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Re: MRTN2 : สอบราคา DB ของโครงการ Murata Newland Phase 2",
+      "note": "P'Kae ประสานงานสอบราคาตู้ DB โครงการ Murata Newland Phase2 กับทีมวิศวกรภายใน"
+    },
+    {
+      "id": "notice_20260710_009",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Re: รบกวนสอบราคาตู้ของโครงการ One Venture Company Limited (Head Office) (OVT)",
+      "note": "P'Kae ส่งใบเสนอราคาตู้โครงการ One Venture ให้ทีมวิศวกรภายใน"
     }
   ],
   "tasks": [
     {
-      "id": "email_20260709_001",
-      "priority": 2,
-      "description": "ตรวจสอบใบเสนอราคา PV Mounting ที่ PLP แก้ไข BOQ ใหม่ (Rev.1) และตอบกลับ",
+      "id": "email_20260710_001",
+      "priority": 1,
+      "description": "รวบรวมและเปรียบเทียบใบเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ — วันนี้ครบกำหนดส่งราคา ได้รับจาก PLP (Q2600748) และ Sunforson แล้ว รอ MGE/Chiko แล้วสรุปเปรียบเทียบ",
       "from": "Sirasit.Thumsa@plp.com",
-      "subject": "RE: ขอใบเสนอราคาอุปกรณ์ PV Mounting โครงการ One Venture Company Limited (OVT) - มีการแก้ไข BOQ - Q2600644 Rev.1",
-      "deadline": null,
-      "project": "One Venture Company Limited (OVT)",
+      "subject": "[Urgent]ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
+      "deadline": "10-07-2026",
+      "project": "Mounting กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260709_002",
+      "id": "email_20260710_002",
       "priority": 2,
-      "description": "ตรวจสอบใบเสนอราคาสายไฟ Solar Cable (ZTT) จาก GMS Thailand สำหรับโครงการ Krungthai Food",
-      "from": "narisa@gmsthailand.com",
-      "subject": "Re: ขอใบเสนอราคา: สายไฟ Solar Cable โครงการ Krungthai Food Co., Ltd. Solar Rooftop",
-      "deadline": null,
-      "project": "Krungthai Food Co., Ltd. Solar Rooftop",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260709_003",
-      "priority": 2,
-      "description": "ดำเนินการสืบราคาผู้รับเหมา (ผรม.) โครงการชาไทย อินเตอร์เนชั่นแนล สาขาเชียงราย (Roof 711.36 kWp)",
-      "from": "jirachawin.pro@gunkul.com",
-      "subject": "[Tender - PU] สืบราคาผรม. โครงการ บริษัท ชาไทย อินเตอร์ เนชั่นแนล จํากัด สาขาเชียงราย",
-      "deadline": null,
-      "project": "บริษัท ชาไทย อินเตอร์เนชั่นแนล จำกัด สาขาเชียงราย",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260709_004",
-      "priority": 2,
-      "description": "ดำเนินการต่อกับ PR ใหม่ที่เปิดแทนตัวเดิม (เลขที่ PR ใหม่: CCPUPRV-003424)",
-      "from": "phonchita.phu@gunkul.com",
-      "subject": "Re: ขอให้เปิด PR [CCPUPRV-002677] ใหม่",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260709_005",
-      "priority": 2,
-      "description": "ตรวจสอบและดำเนินการต่อเรื่อง Award ผู้รับเหมางานติดตั้งระบบไฟฟ้า Solar Rooftop โครงการ SPS17 ที่ Kae forward มาให้โดยตรง",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Fwd: Award ผู้รับเหมาสำหรับงานติดตั้งระบบไฟฟ้า Solar Rooftop โครงการ SPS17 (โรงพยาบาลสมเด็จพระสังฆราช องค์ที่ 17)",
-      "deadline": null,
-      "project": "SPS17 (โรงพยาบาลสมเด็จพระสังฆราช องค์ที่ 17)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260709_006",
-      "priority": 2,
-      "description": "ตรวจสอบใบเสนอราคา Solar Mounting Structure จาก Sunforson สำหรับโครงการต้นคูณ (TKF)",
-      "from": "bee@sunforson.com",
-      "subject": "Re:ขอใบเสนอราคา Solar Mounting Structure – โครงการต้นคูณ (TKF)",
+      "description": "เปรียบเทียบใบเสนอราคา Solar Mounting Structure โครงการต้นคูณ (TKF) — ได้รับจาก PLP (Q2600749), Sunforson และ Chiko ครบแล้ว รอสรุปเปรียบเทียบราคาและเลือกผู้ชนะ",
+      "from": "Sirasit.Thumsa@plp.com",
+      "subject": "ขอใบเสนอราคา Solar Mounting Structure – โครงการต้นคูณ (TKF)",
       "deadline": null,
       "project": "โครงการต้นคูณ (TKF)",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260709_007",
+      "id": "email_20260710_003",
       "priority": 2,
-      "description": "เปิด PR สำหรับ RFQ วิศวกรโยธา (ใบอนุญาต) โครงการ Preserve Food เฟส 2 — งบวิศวกรโยธา 30,000 บาท, ขอเปิด PR 20,000 บาท",
-      "from": "khemakorn.tas@gunkul.com",
-      "subject": "PFS2 : RFQ for Engineering License",
+      "description": "สอบราคา Transformer ใหม่ โครงการ Triumph Motorcycles — ขนาดปรับจาก 3,500 kVA เป็น 3,000 kVA ต้องขอใบเสนอราคาและ Spec Datasheet ใหม่จาก Vendor",
+      "from": "uae.khe@gunkul.com",
+      "subject": "Re: TME : สอบราคา Transformer ของโครงการ Triumph Motorcycles (Thailand) Co., Ltd. ขนาด 3,591.36 kWp",
       "deadline": null,
-      "project": "Preserve Food เฟส 2 (PFS2)",
+      "project": "Triumph Motorcycles (Thailand)",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260709_008",
+      "id": "email_20260710_004",
+      "priority": 2,
+      "description": "สอบราคาผู้รับเหมาติดตั้งลูกปูนและระบบโซลาร์ โครงการนายสุธัช เรืองสุทธิภาพ (Baan Mueangthong) ขนาด 74.36 kWp ตามคำขอจากฝ่ายวิศวกรรม",
+      "from": "thofan.thu@gunkul.com",
+      "subject": "รบกวนสอบราคางานจ้างผรมติดตั้งลูกปูน+โซลาร์ค่ะ โครงการนายสุธัช เรืองสุทธิภาพค่ะ",
+      "deadline": null,
+      "project": "นายสุธัช เรืองสุทธิภาพ (Baan Mueangthong)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260710_005",
       "priority": 3,
-      "description": "รับทราบใบส่งสินค้า (Delivery Order) BSS-DO2607-202 จาก Integra R.E. — เก็บเป็นหลักฐานการจัดส่ง",
-      "from": "webshop.thailand@integra-re.com",
-      "subject": "[Integra R.E. Co., Ltd.] Delivery Order Notification",
+      "description": "ติดตามใบเสนอราคา Sungrow Power Optimizer 600W จาก PI Enterprise — ส่งเอกสาร ภพ.20 และหนังสือรับรองบริษัทให้แล้ว รอใบเสนอราคาอย่างเป็นทางการกลับมา",
+      "from": "wachareen@pienterprise.co.th",
+      "subject": "Re: ขอใบเสนอราคา Sungrow Power Optimizer 600W (SP600S-long 1:1)",
       "deadline": null,
       "project": null,
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260709_009",
+      "id": "email_20260710_006",
       "priority": 3,
-      "description": "รับทราบ: หัวหน้า (Thanathip) แจ้งราคาผู้รับเหมาโครงการ GROOF ธ.กรุงไทย ผ่านลิงก์ Drive ให้ทีม Groof (ไม่ได้สั่งการ White โดยตรง)",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "GROOF : ราคา ผรม ธ.กรุงไทย",
+      "description": "รอใบเสนอราคาเพิ่มเติมเพื่อเปรียบเทียบ งาน EE&CV Work โครงการ Thai Ausnor (Solar Rooftop 364.32 kWp) — ได้รับจากบุญทวีชัย เอ็นจิเนียริ่ง 1 ราย",
+      "from": "surapong@boontaweechai.com",
+      "subject": "Re: ขอใบเสนอราคา – โครงการ Thai Ausnor (Solar Rooftop 364.32 kWp)",
       "deadline": null,
-      "project": "GROOF ธ.กรุงไทย",
-      "is_fyi": true,
+      "project": "Thai Ausnor",
+      "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260709_010",
+      "id": "email_20260710_007",
       "priority": 3,
-      "description": "รับทราบ: หัวหน้า (Thanathip) แจ้ง Award โครงการ SCB สาขารัตนาธิเบศร์ ให้ FS Fusion และขอรายชื่อทีมเข้าอบรม (แจ้งเวียนทีม ไม่ได้สั่งการ White โดยตรง)",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "Re: RFQ - โครงการ SCB สาขาถนนรัตนาธิเบศร์",
+      "description": "รอใบเสนอราคาเพิ่มเติมเพื่อเปรียบเทียบ งานติดตั้ง EE โครงการชาไทย อินเตอร์เนชั่นแนล สาขาเชียงราย (Solar Rooftop 711.36 kWp) — ได้รับจากบุญทวีชัย เอ็นจิเนียริ่ง 1 ราย",
+      "from": "surapong@boontaweechai.com",
+      "subject": "Re: ขอใบเสนอราคาผู้รับเหมางานติดตั้ง EE – โครงการ บริษัท ชาไทย อินเตอร์เนชั่นแนล จำกัด สาขาเชียงราย",
       "deadline": null,
-      "project": "SCB สาขารัตนาธิเบศร์",
-      "is_fyi": true,
+      "project": "ชาไทย อินเตอร์เนชั่นแนล สาขาเชียงราย",
+      "is_fyi": false,
       "type": "email"
     }
   ]
