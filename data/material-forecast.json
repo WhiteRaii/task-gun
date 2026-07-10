@@ -1,0 +1,723 @@
+{
+  "generated_at": "2026-07-10T23:42:28",
+  "source_file": "02 DC forecast cleaned.xlsx",
+  "source_last_updated": "20-05-2026",
+  "grand_total": {
+    "monthly_demand": {
+      "Apr-26": 15460,
+      "May-26": 708180,
+      "Jun-26": 278057,
+      "Jul-26": 0,
+      "Aug-26": 0,
+      "Sep-26": 0
+    },
+    "total_demand_m": 1001697,
+    "stock_on_hand": 400,
+    "stock_reorder": 0,
+    "shortage_m": -1001297
+  },
+  "equipment_status_counts": {
+    "Draft": 2,
+    "Waiting PR": 11,
+    "PO Approved": 0,
+    "On-Site": 6
+  },
+  "cable_types": [
+    {
+      "name": "Link #6",
+      "unit_price_thb_per_m": 27.25,
+      "total_cost_thb": "15,925,090.75",
+      "monthly_demand": {
+        "Apr-26": 15460,
+        "May-26": 474290,
+        "Jun-26": 94657,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "total_demand_m": 584407,
+      "stock_on_hand": 0,
+      "stock_reorder": 0,
+      "shortage_m": -584407,
+      "shortage_by_month_detail": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "status": "🔴 Critical Shortage",
+      "trigger_project_count": 12,
+      "reorder_flag": "⚠ ORDER NOW",
+      "projects": [
+        {
+          "project": "Topbest Manufacturing",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 306000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 306000,
+          "trigger": true
+        },
+        {
+          "project": "Carabao Phase 5",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 51000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 51000,
+          "trigger": true
+        },
+        {
+          "project": "HONCHUAN",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 42000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 42000,
+          "trigger": true
+        },
+        {
+          "project": "SRP POLYPACK",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 38290,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 38290,
+          "trigger": true
+        },
+        {
+          "project": "LEEPATTANA-METER 2 (PETCHABURI)",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 27126,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 27126,
+          "trigger": true
+        },
+        {
+          "project": "KT1",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 27000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 27000,
+          "trigger": true
+        },
+        {
+          "project": "LEEPATTANA-METER 1 (PETCHABURI)",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 23531,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 23531,
+          "trigger": true
+        },
+        {
+          "project": "TONKOON FOOD",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 17000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 17000,
+          "trigger": true
+        },
+        {
+          "project": "SMC Rayong",
+          "monthly_demand": {
+            "Apr-26": 15460,
+            "May-26": 0,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 15460,
+          "trigger": true
+        },
+        {
+          "project": "LEEPATTANA-METER 1 (SARABURI)",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 15000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 15000,
+          "trigger": true
+        },
+        {
+          "project": "LEEPATTANA-METER 2 (SARABURI)",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 12000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 12000,
+          "trigger": true
+        },
+        {
+          "project": "P.S.T.PARAWOOD(2018) คลองท่อม",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 10000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 10000,
+          "trigger": true
+        }
+      ]
+    },
+    {
+      "name": "Link #4",
+      "unit_price_thb_per_m": null,
+      "total_cost_thb": null,
+      "monthly_demand": {
+        "Apr-26": 0,
+        "May-26": 45800,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "total_demand_m": 45800,
+      "stock_on_hand": 0,
+      "stock_reorder": 0,
+      "shortage_m": -45800,
+      "shortage_by_month_detail": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "status": "⚠ Warning",
+      "trigger_project_count": 2,
+      "reorder_flag": "⚠ ORDER NOW",
+      "projects": [
+        {
+          "project": "Carabao Phase 5",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 27000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 27000,
+          "trigger": true
+        },
+        {
+          "project": "NIPPON BETTERY & RUBBER",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 18800,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 18800,
+          "trigger": true
+        }
+      ]
+    },
+    {
+      "name": "Prysmian #4",
+      "unit_price_thb_per_m": null,
+      "total_cost_thb": null,
+      "monthly_demand": {
+        "Apr-26": 0,
+        "May-26": 85800,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "total_demand_m": 85800,
+      "stock_on_hand": 0,
+      "stock_reorder": 0,
+      "shortage_m": -85800,
+      "shortage_by_month_detail": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "status": "🔴 Critical Shortage",
+      "trigger_project_count": 1,
+      "reorder_flag": "⚠ ORDER NOW",
+      "projects": [
+        {
+          "project": "Murata Ph2 (New land) ROOFTOP",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 40000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 40000,
+          "trigger": true
+        },
+        {
+          "project": "Carabao Phase 5",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 27000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 27000,
+          "trigger": false
+        },
+        {
+          "project": "NIPPON BETTERY & RUBBER",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 18800,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 18800,
+          "trigger": false
+        }
+      ]
+    },
+    {
+      "name": "Prysmian #6",
+      "unit_price_thb_per_m": 29.5,
+      "total_cost_thb": "6,126,855.00",
+      "monthly_demand": {
+        "Apr-26": 0,
+        "May-26": 102290,
+        "Jun-26": 105400,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "total_demand_m": 207690,
+      "stock_on_hand": 0,
+      "stock_reorder": 0,
+      "shortage_m": -207290,
+      "shortage_by_month_detail": {
+        "Apr-26": 0,
+        "May-26": 400,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "status": "🔴 Critical Shortage",
+      "trigger_project_count": 4,
+      "reorder_flag": "⚠ ORDER NOW",
+      "projects": [
+        {
+          "project": "Carabao Phase 5",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 51000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 51000,
+          "trigger": false
+        },
+        {
+          "project": "Thungyai Rubber",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 50000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 50000,
+          "trigger": true
+        },
+        {
+          "project": "SRP POLYPACK",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 38290,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 38290,
+          "trigger": false
+        },
+        {
+          "project": "Triumph Motocycle",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 38000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 38000,
+          "trigger": true
+        },
+        {
+          "project": "TONKOON FOOD",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 17000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 17000,
+          "trigger": false
+        },
+        {
+          "project": "Somdej hospital",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 13000,
+            "Jun-26": 0,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 13000,
+          "trigger": true
+        },
+        {
+          "project": "Magnequench งานเพิ่ม",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 400,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 400,
+          "trigger": true
+        }
+      ]
+    },
+    {
+      "name": "Prysmian #10",
+      "unit_price_thb_per_m": null,
+      "total_cost_thb": null,
+      "monthly_demand": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 78000,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "total_demand_m": 78000,
+      "stock_on_hand": 0,
+      "stock_reorder": 0,
+      "shortage_m": -78000,
+      "shortage_by_month_detail": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "status": "🔴 Critical Shortage",
+      "trigger_project_count": 1,
+      "reorder_flag": "⚠ ORDER NOW",
+      "projects": [
+        {
+          "project": "Triumph",
+          "monthly_demand": {
+            "Apr-26": 0,
+            "May-26": 0,
+            "Jun-26": 78000,
+            "Jul-26": 0,
+            "Aug-26": 0,
+            "Sep-26": 0
+          },
+          "total_qty_m": 78000,
+          "trigger": true
+        }
+      ]
+    },
+    {
+      "name": "Prysmian #16",
+      "unit_price_thb_per_m": null,
+      "total_cost_thb": null,
+      "monthly_demand": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "total_demand_m": 0,
+      "stock_on_hand": 0,
+      "stock_reorder": 0,
+      "shortage_m": 0,
+      "shortage_by_month_detail": {
+        "Apr-26": 0,
+        "May-26": 0,
+        "Jun-26": 0,
+        "Jul-26": 0,
+        "Aug-26": 0,
+        "Sep-26": 0
+      },
+      "status": "✅ Sufficient",
+      "trigger_project_count": 0,
+      "reorder_flag": "OK",
+      "projects": []
+    }
+  ],
+  "projects_dc_cable_status": [
+    {
+      "project_id": "PRJ-001",
+      "project_name": "Nisshinbo Micre Devices",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "LOI",
+      "dc_cable_delivery": "On-Site",
+      "overall_status": "On-Site",
+      "pa_po_progress_pct": 100
+    },
+    {
+      "project_id": "PRJ-002",
+      "project_name": "JR Pack",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "LOI",
+      "dc_cable_delivery": "On-Site",
+      "overall_status": "On-Site",
+      "pa_po_progress_pct": 100
+    },
+    {
+      "project_id": "PRJ-003",
+      "project_name": "Sitthinon Trading (1995)",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "LOI",
+      "dc_cable_delivery": "On-Site",
+      "overall_status": "On-Site",
+      "pa_po_progress_pct": 100
+    },
+    {
+      "project_id": "PRJ-004",
+      "project_name": "GFPT Nichirei",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "LOI",
+      "dc_cable_delivery": "On-Site",
+      "overall_status": "On-Site",
+      "pa_po_progress_pct": 100
+    },
+    {
+      "project_id": "PRJ-005",
+      "project_name": "Murata Farm",
+      "type": "Farm",
+      "pm": null,
+      "dc_cable_status": "Recived PR",
+      "dc_cable_delivery": "On-Site",
+      "overall_status": "On-Site",
+      "pa_po_progress_pct": 100
+    },
+    {
+      "project_id": "PRJ-006",
+      "project_name": "Topbest Manufacturing",
+      "type": "Rooftop",
+      "pm": "Natthakit",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": 40
+    },
+    {
+      "project_id": "PRJ-007",
+      "project_name": "Preserve Food Specaility Phase 2",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "Recived PR",
+      "dc_cable_delivery": "On-Site",
+      "overall_status": "On-Site",
+      "pa_po_progress_pct": 100
+    },
+    {
+      "project_id": "PRJ-008",
+      "project_name": "SMC Rayong",
+      "type": "Rooftop",
+      "pm": "Fiat",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": 40
+    },
+    {
+      "project_id": "PRJ-009",
+      "project_name": "Murata Ph2 (New land) ROOFTOP",
+      "type": "Rooftop",
+      "pm": "Bank",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": 20
+    },
+    {
+      "project_id": "PRJ-010",
+      "project_name": "Murata Ph2 (New land) CARPORT",
+      "type": "Carport",
+      "pm": "P Ball",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": 20
+    },
+    {
+      "project_id": "PRJ-011",
+      "project_name": "TOP GLOVE",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": null,
+      "dc_cable_delivery": null,
+      "overall_status": "Draft",
+      "pa_po_progress_pct": null
+    },
+    {
+      "project_id": "PRJ-012",
+      "project_name": "Carabao Phase 5",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": 50
+    },
+    {
+      "project_id": "PRJ-013",
+      "project_name": "P.S.T.PARAWOOD(2018) คลองท่อม",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": 20
+    },
+    {
+      "project_id": "PRJ-014",
+      "project_name": "HONCHUAN",
+      "type": "Rooftop",
+      "pm": "Fiat",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": null
+    },
+    {
+      "project_id": "PRJ-015",
+      "project_name": "NIPPON BETTERY & RUBBER",
+      "type": "Rooftop",
+      "pm": "Fiat",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Draft",
+      "pa_po_progress_pct": null
+    },
+    {
+      "project_id": "PRJ-016",
+      "project_name": "KT1",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": null
+    },
+    {
+      "project_id": "PRJ-017",
+      "project_name": "SRP POLYPACK",
+      "type": "Rooftop",
+      "pm": "Fiat",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": null
+    },
+    {
+      "project_id": "PRJ-018",
+      "project_name": "ASSAWIN ASSET",
+      "type": "Rooftop",
+      "pm": "Natthakit",
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": null
+    },
+    {
+      "project_id": "PRJ-019",
+      "project_name": "TRIUMPH",
+      "type": "Rooftop",
+      "pm": null,
+      "dc_cable_status": "Waiting PR",
+      "dc_cable_delivery": null,
+      "overall_status": "Waiting PR",
+      "pa_po_progress_pct": null
+    }
+  ]
+}
