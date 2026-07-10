@@ -387,9 +387,12 @@ location.reload();
 // TASK STATE (checkbox/notes) — synced via Firebase Realtime Database
 // ═══════════════════════════════════════════
 let stateCache = {};
+let lastLocalWriteAt = 0;
+const ECHO_WINDOW_MS = 1200; // avoid a full re-render caused by our own write echoing back
 function loadState() { return stateCache; }
 function saveState(s) {
 stateCache = s;
+lastLocalWriteAt = Date.now();
 return db.ref('task_state').set(s);
 }
 
@@ -511,11 +514,14 @@ const card = document.getElementById('card-' + id);
 if (card) card.classList.toggle('done', cb.checked);
 updateProgress();
 }
+let noteTimers = {};
 function saveNote(id) {
 const s = loadState();
 if (!s[id]) s[id] = {};
 s[id].note = (document.getElementById('note-' + id)||{}).value || '';
-saveState(s);
+stateCache = s; // update cache immediately so nothing is lost, but debounce the network write
+clearTimeout(noteTimers[id]);
+noteTimers[id] = setTimeout(() => saveState(s), 600);
 }
 
 // ═══════════════════════════════════════════
@@ -723,7 +729,7 @@ const check = () => { if (stateLoaded && manualLoaded) resolve(); };
 db.ref('task_state').on('value', snap => {
 stateCache = snap.val() || {};
 if (!stateLoaded) { stateLoaded = true; check(); }
-else rerenderFromCache();
+else if (Date.now() - lastLocalWriteAt > ECHO_WINDOW_MS) rerenderFromCache();
 });
 
 db.ref('custom_tasks').on('value', snap => {
