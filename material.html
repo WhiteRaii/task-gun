@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🔌 DC Cable Forecast — White | Gunkul Procurement</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: #2d3748; min-height: 100vh; }
@@ -28,7 +29,6 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 }
 .refresh-btn:hover { background: rgba(255,255,255,0.28); }
 
-/* Nav tabs */
 .nav-tabs { display: flex; gap: 6px; margin-top: 16px; }
 .nav-tab {
   color: rgba(255,255,255,0.75); text-decoration: none; font-size: 12px; font-weight: 600;
@@ -39,7 +39,7 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .nav-tab.active { background: #f0f4f8; color: #1a5276; }
 
 /* ── BODY ── */
-.body { max-width: 1080px; margin: 0 auto; padding: 22px 14px 70px; }
+.body { max-width: 1100px; margin: 0 auto; padding: 22px 14px 70px; }
 
 .loading-box { text-align: center; padding: 70px 20px; color: #718096; }
 .spinner {
@@ -75,6 +75,27 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .sh-purple { background: #553c9a; }
 .sh-teal   { background: #285e61; }
 
+/* Price monitoring */
+.price-panel { background: #fff; border-radius: 0 0 10px 10px; padding: 16px; }
+.price-controls { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 12.5px; }
+.price-controls select { font-size: 12.5px; padding: 5px 8px; border-radius: 6px; border: 1px solid #cbd5e0; }
+.price-chart-wrap { position: relative; height: 220px; margin-bottom: 14px; }
+.price-empty { text-align: center; padding: 30px 20px; color: #a0aec0; font-size: 12.5px; }
+.po-history-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+.po-history-table th { text-align: left; font-size: 10.5px; color: #a0aec0; font-weight: 700; padding: 6px 8px; border-bottom: 1px solid #e2e8f0; }
+.po-history-table td { padding: 6px 8px; border-bottom: 1px solid #f0f4f8; }
+.po-history-table td.num { text-align: right; }
+.brand-tag { display:inline-block; font-size: 10px; font-weight: 700; padding: 1px 8px; border-radius: 99px; color: #fff; }
+
+/* Usage pie */
+.pie-panel { background: #fff; border-radius: 0 0 10px 10px; padding: 16px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.pie-chart-wrap { position: relative; width: 200px; height: 200px; flex-shrink: 0; }
+.pie-legend { font-size: 12.5px; flex: 1; min-width: 200px; }
+.pie-legend-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-bottom: 1px solid #f0f4f8; }
+.pie-legend-dot { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+.pie-legend-name { font-weight: 700; }
+.pie-legend-val { margin-left: auto; color: #718096; }
+
 /* Cable type card */
 .cable-card {
   background: #fff; border-left: 5px solid #cbd5e0;
@@ -109,13 +130,11 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
 .month-bar-val { font-size: 9px; color: #718096; margin-bottom: 2px; }
 .month-bar-lbl { font-size: 9.5px; color: #a0aec0; margin-top: 4px; }
 
-.proj-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; min-width: 640px; }
+.proj-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 8px; min-width: 820px; }
 .proj-table th { text-align: left; font-size: 10.5px; color: #a0aec0; font-weight: 600; padding: 4px 8px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
-.proj-table td { padding: 6px 8px; border-bottom: 1px solid #f0f4f8; }
+.proj-table td { padding: 6px 8px; border-bottom: 1px solid #f0f4f8; white-space: nowrap; }
 .proj-table tr:last-child td { border-bottom: none; }
 .proj-table .qty { text-align: right; font-weight: 600; }
-.trigger-yes { color: #c53030; font-weight: 700; font-size: 11px; }
-.trigger-no { color: #a0aec0; font-size: 11px; }
 
 /* Editable ledger inputs */
 .edit-input {
@@ -123,14 +142,20 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; color: 
   padding: 4px 6px; background: #f7fafc; transition: background 0.3s;
 }
 .edit-input:focus { outline: 2px solid #90cdf4; background: #fff; }
-select.edit-input { min-width: 100px; }
-input.edit-input[type=text] { width: 90px; }
-input.edit-input.qty-input { width: 80px; }
+select.edit-input { min-width: 92px; }
+input.edit-input.name-input { width: 200px; }
+input.edit-input.qty-input { width: 84px; text-align: right; }
+select.edit-input.po-select { min-width: 130px; }
+.remaining-val { font-weight: 700; }
+.remaining-val.zero { color: #38a169; }
+.remaining-val.pos { color: #c53030; }
 
 .add-project-toggle { cursor: pointer; font-size: 12px; color: #2b6cb0; font-weight: 700; margin-top: 12px; display: inline-block; }
 .add-project-fields { display: none; gap: 6px; margin-top: 8px; align-items: center; }
-.add-project-form.open .add-project-fields { display: flex; flex-wrap: wrap; }
-.add-project-fields input[type=text], .add-project-fields input[type=number] {
+.add-project-form.open .add-project-fields,
+.add-po-form.open .add-project-fields { display: flex; flex-wrap: wrap; }
+.add-project-fields input[type=text], .add-project-fields input[type=number],
+.add-project-fields input[type=date], .add-project-fields select {
   font-size: 11.5px; border: 1px solid #cbd5e0; border-radius: 5px; padding: 5px 7px;
 }
 .add-project-fields input[name=project] { width: 170px; }
@@ -141,12 +166,6 @@ input.edit-input.qty-input { width: 80px; }
   font-size: 12px; font-weight: 700; cursor: pointer;
 }
 .add-project-fields button:hover { background: #154063; }
-
-/* Price monitoring placeholder */
-.price-placeholder {
-  background: #fff; border-radius: 0 0 10px 10px; padding: 22px 18px; text-align: center; color: #718096; font-size: 12.5px;
-}
-.price-placeholder .big { font-size: 28px; margin-bottom: 6px; }
 
 .empty-sec { text-align: center; padding: 18px; color: #a0aec0; font-size: 13px; background: #fff; border-radius: 0 0 10px 10px; }
 .footer { text-align: center; font-size: 11px; color: #a0aec0; margin-top: 40px; }
@@ -181,9 +200,7 @@ input.edit-input.qty-input { width: 80px; }
 
 <script>
 // ===== Data sources =====
-// Live: Google Apps Script Web App ผูกกับ Sheet "02 DC forecast cleaned" (อ่าน+เขียนได้จริง)
 const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzqaEc5KsAIyNx7CBrUcAqvTjD90EMTQBS5bgfI-7MB_2DNd4Ki5LHWMo1zAi9ogtq7/exec';
-// Fallback: ไฟล์ JSON static เดิม (ใช้กรณี Web App เข้าถึงไม่ได้ชั่วคราว)
 const FALLBACK_JSON_URL = 'https://raw.githubusercontent.com/WhiteRaii/task-gun/main/data/material-forecast.json';
 
 function toJsdelivr(url) {
@@ -200,10 +217,7 @@ async function fetchOnce(url) {
 }
 async function fetchLive(url) {
   try { return await fetchOnce(url); }
-  catch (e1) {
-    await new Promise(res => setTimeout(res, 800));
-    return await fetchOnce(url);
-  }
+  catch (e1) { await new Promise(res => setTimeout(res, 800)); return await fetchOnce(url); }
 }
 async function fetchFallback(url) {
   try { return await fetchOnce(url); }
@@ -234,6 +248,13 @@ function esc(s) {
 function escAttr(s) {
   return String(s == null ? '' : s).replace(/\\/g,'\\\\').replace(/'/g,"\\'");
 }
+function formatThousands(v) {
+  const n = Number(String(v).replace(/,/g,'')) || 0;
+  return n.toLocaleString('en-US');
+}
+function parseThousands(v) {
+  return Number(String(v).replace(/,/g,'')) || 0;
+}
 
 const STATUS_MAP = {
   '🔴 Critical Shortage': { cls: 'critical', label: '🔴 ขาดวิกฤต' },
@@ -246,31 +267,29 @@ function statusInfo(status) {
 }
 
 const PROC_STATUS_OPTIONS = ['', 'Not Ordered', 'PO Issued', 'Delivered'];
+const AWARD_OPTIONS = ['', 'Yes', 'No'];
+const BRAND_COLORS = { 'Draka': '#e53e3e', 'Prysmian': '#2b6cb0', 'Link': '#38a169', 'Other': '#a0aec0' };
+const SIZE_COLORS = { '4': '#63b3ed', '6': '#4299e1', '10': '#2b6cb0', '16': '#1a365d' };
 
-// ---------- Parse "Summary" raw 2D array (from live feed) into per-cable-type stats ----------
+function detectBrandSize(sheetName) {
+  const parts = String(sheetName || '').split('#');
+  return { brand: (parts[0] || '').trim(), size: (parts[1] || '').trim() };
+}
+
+// ---------- Parse "Summary" raw 2D array (only for curated fields: status/reorder/unit price/stock) ----------
 function parseSummary(summaryRaw) {
   const byName = {};
-  let grandTotal = {};
-  if (!Array.isArray(summaryRaw)) return { byName, grandTotal };
-
+  if (!Array.isArray(summaryRaw)) return { byName };
   const statusHeaderIdx = summaryRaw.findIndex(r => String((r||[])[1] || '').includes('Cable Type'));
   if (statusHeaderIdx !== -1) {
     for (let r = statusHeaderIdx + 1; r < summaryRaw.length; r++) {
       const row = summaryRaw[r] || [];
       const name = row[1];
       if (!name) break;
-      if (String(name).toUpperCase() === 'GRAND TOTAL') {
-        grandTotal = { total_demand_m: row[8], stock_on_hand: row[9], stock_reorder: row[10], shortage_m: row[11] };
-        break;
-      }
-      byName[name] = {
-        monthly_demand: { 'Apr-26': row[2], 'May-26': row[3], 'Jun-26': row[4], 'Jul-26': row[5], 'Aug-26': row[6], 'Sep-26': row[7] },
-        total_demand_m: row[8], stock_on_hand: row[9], stock_reorder: row[10], shortage_m: row[11],
-        unit_price_thb_per_m: row[12], status: row[13]
-      };
+      if (String(name).toUpperCase() === 'GRAND TOTAL') break;
+      byName[name] = { stock_on_hand: row[9], unit_price_thb_per_m: row[12], status: row[13] };
     }
   }
-
   const trigHeaderIdx = summaryRaw.findIndex(r => String((r||[])[1] || '').includes('Near-Term'));
   if (trigHeaderIdx !== -1) {
     for (let r = trigHeaderIdx + 1; r < summaryRaw.length; r++) {
@@ -278,40 +297,50 @@ function parseSummary(summaryRaw) {
       const name = row[0];
       if (!name) break;
       if (!byName[name]) byName[name] = {};
-      byName[name].trigger_project_count = row[4];
       byName[name].reorder_flag = row[5];
     }
   }
-  return { byName, grandTotal };
+  return { byName };
 }
 
+const MONTHS = ['Apr-26','May-26','Jun-26','Jul-26','Aug-26','Sep-26'];
+
 function buildCableTypes(liveData) {
-  const { byName, grandTotal } = parseSummary(liveData.summary);
+  const { byName } = parseSummary(liveData.summary);
   const cableTypes = (liveData.cableTypes || []).map(sheet => {
     const s = byName[sheet.name] || {};
+    const projects = (sheet.projects || []).map(p => ({
+      project: p['Project'],
+      total_qty_m: Number(p['Total Qty (m)']) || 0,
+      monthly: MONTHS.reduce((acc, m) => { acc[m] = Number(p[m]) || 0; return acc; }, {}),
+      award: String(p['Award'] !== undefined ? p['Award'] : (p['Trigger'] || '')).trim(),
+      status: p['Status'] || '',
+      poNo: p['PO No.'] || '',
+      deliveredQty: Number(p['Delivered Qty (m)']) || 0,
+    }));
+    const monthly_demand = {};
+    MONTHS.forEach(m => monthly_demand[m] = projects.reduce((sum, p) => sum + p.monthly[m], 0));
+    const total_demand_m = projects.reduce((sum, p) => sum + p.total_qty_m, 0);
+    const stock_on_hand = Number(s.stock_on_hand) || 0;
+    const shortage_m = stock_on_hand - total_demand_m;
     const unitPriceNum = parseFloat(s.unit_price_thb_per_m);
-    const totalCost = (!isNaN(unitPriceNum) && s.total_demand_m) ? unitPriceNum * Number(s.total_demand_m) : null;
+    const total_cost_thb = !isNaN(unitPriceNum) ? unitPriceNum * total_demand_m : null;
+    const awardedCount = projects.filter(p => p.award.toLowerCase() === 'yes').length;
     return {
       name: sheet.name,
       status: s.status,
       reorder_flag: s.reorder_flag,
-      monthly_demand: s.monthly_demand || {},
-      total_demand_m: s.total_demand_m,
-      stock_on_hand: s.stock_on_hand,
-      shortage_m: s.shortage_m,
+      monthly_demand, total_demand_m, stock_on_hand, shortage_m,
       unit_price_thb_per_m: !isNaN(unitPriceNum) ? unitPriceNum : null,
-      total_cost_thb: totalCost,
-      trigger_project_count: s.trigger_project_count,
-      projects: (sheet.projects || []).map(p => ({
-        project: p['Project'],
-        total_qty_m: p['Total Qty (m)'],
-        trigger: String(p['Trigger'] || '').toLowerCase() === 'yes',
-        status: p['Status'] || '',
-        poNo: p['PO No.'] || '',
-        deliveredQty: p['Delivered Qty (m)'] || '',
-      })),
+      total_cost_thb,
+      trigger_project_count: awardedCount,
+      projects,
     };
   });
+  const grandTotal = {
+    total_demand_m: cableTypes.reduce((s, c) => s + c.total_demand_m, 0),
+    shortage_m: cableTypes.reduce((s, c) => s + c.shortage_m, 0),
+  };
   return { cableTypes, grandTotal };
 }
 
@@ -319,7 +348,7 @@ function buildCableTypes(liveData) {
 async function postUpdate(payload) {
   const r = await fetch(WEBAPP_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // ใช้ text/plain กัน CORS preflight (Apps Script ไม่รองรับ OPTIONS)
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(payload)
   });
   return r.json();
@@ -332,9 +361,12 @@ async function onFieldChange(sheetName, projectName, field, value, inputEl) {
     const res = await postUpdate({ action: 'updateProject', sheet: sheetName, project: projectName, updates });
     if (!res.ok) throw new Error(res.error || 'update failed');
     flashSaved(inputEl);
+    if (field === 'Total Qty (m)' || field === 'Delivered Qty (m)' || field === 'Award') {
+      await refreshData(true);
+    }
   } catch (e) {
     console.error(e);
-    alert('บันทึกไม่สำเร็จ: ' + e.message + '\n(เช็คว่า Deploy Web App เป็น "Anyone" แล้วหรือยัง)');
+    alert('บันทึกไม่สำเร็จ: ' + e.message);
   } finally {
     inputEl.disabled = false;
   }
@@ -348,7 +380,7 @@ async function addProject(sheetName, formEl) {
   const fd = new FormData(formEl);
   const monthKeys = ['apr','may','jun','jul','aug','sep'];
   const monthLabels = { apr:'Apr-26', may:'May-26', jun:'Jun-26', jul:'Jul-26', aug:'Aug-26', sep:'Sep-26' };
-  const row = { 'Item': '', 'Project': fd.get('project'), 'Notes': fd.get('notes') || '', 'Trigger': fd.get('trigger') === 'on' ? 'Yes' : 'No' };
+  const row = { 'Item': '', 'Project': fd.get('project'), 'Notes': fd.get('notes') || '', 'Award': fd.get('award') === 'on' ? 'Yes' : 'No' };
   let total = 0;
   monthKeys.forEach(k => { const v = Number(fd.get(k) || 0); row[monthLabels[k]] = v; total += v; });
   row['Total Qty (m)'] = total;
@@ -358,19 +390,144 @@ async function addProject(sheetName, formEl) {
   try {
     const res = await postUpdate({ action: 'addProject', sheet: sheetName, row });
     if (!res.ok) throw new Error(res.error || 'add failed');
-    await refreshData();
+    await refreshData(true);
   } catch (e) {
     alert('เพิ่มโครงการไม่สำเร็จ: ' + e.message);
     btn.disabled = false; btn.textContent = 'บันทึก';
   }
 }
 
-function renderCableCard(c, idx) {
+async function addPO(formEl) {
+  const fd = new FormData(formEl);
+  const qty = Number(fd.get('qty') || 0);
+  const price = Number(fd.get('price') || 0);
+  const row = {
+    'Date': fd.get('date'), 'PO No.': fd.get('pono'), 'Brand': fd.get('brand'), 'Cable Size': fd.get('size'),
+    'Qty (m)': qty, 'Price/Unit (THB)': price, 'Total (THB)': qty * price, 'Project': fd.get('project') || '', 'Notes': ''
+  };
+  if (!row['PO No.'] || !row['Date']) { alert('กรุณากรอกวันที่และเลข PO'); return; }
+  const btn = formEl.querySelector('button[type=submit]');
+  btn.disabled = true; btn.textContent = 'กำลังบันทึก...';
+  try {
+    const res = await postUpdate({ action: 'addPO', row });
+    if (!res.ok) throw new Error(res.error || 'add failed');
+    await refreshData(true);
+  } catch (e) {
+    alert('เพิ่ม PO ไม่สำเร็จ: ' + e.message);
+    btn.disabled = false; btn.textContent = 'บันทึก';
+  }
+}
+
+// ---------- Price Monitoring ----------
+let priceChartInstance = null;
+let currentSizeFilter = 'all';
+
+function renderPricePanel() {
+  const purchaseOrders = (lastLiveData && lastLiveData.purchaseOrders) || [];
+  const wrap = document.getElementById('price-monitoring-body');
+  if (!wrap) return;
+
+  const filtered = purchaseOrders.filter(po => currentSizeFilter === 'all' || String(po['Cable Size']).trim() === currentSizeFilter);
+  const withDate = filtered.filter(po => po['Date']);
+
+  document.getElementById('po-count').textContent = purchaseOrders.length + ' รายการ';
+
+  if (withDate.length === 0) {
+    wrap.innerHTML = `<div class="price-empty">📈 ยังไม่มีข้อมูลราคา PO ย้อนหลัง<br>เพิ่มด้วยฟอร์มด้านล่าง หรือกรอกตรงในแถบ "Purchase Orders" ใน Google Sheet ได้เลย</div>`;
+  } else {
+    const sorted = [...withDate].sort((a,b) => new Date(a['Date']) - new Date(b['Date']));
+    const labels = [...new Set(sorted.map(po => po['Date']))];
+    const byBrand = {};
+    sorted.forEach(po => {
+      const brand = String(po['Brand'] || 'Other').trim() || 'Other';
+      if (!byBrand[brand]) byBrand[brand] = {};
+      byBrand[brand][po['Date']] = Number(po['Price/Unit (THB)']) || 0;
+    });
+    const datasets = Object.keys(byBrand).map(brand => ({
+      label: brand,
+      data: labels.map(d => byBrand[brand][d] !== undefined ? byBrand[brand][d] : null),
+      borderColor: BRAND_COLORS[brand] || BRAND_COLORS['Other'],
+      backgroundColor: 'transparent',
+      spanGaps: true,
+      tension: 0.25,
+    }));
+
+    const historyRows = [...filtered].sort((a,b) => new Date(b['Date']) - new Date(a['Date'])).map(po => {
+      const brand = String(po['Brand'] || 'Other').trim() || 'Other';
+      return `<tr>
+        <td>${esc(po['Date'])}</td>
+        <td>${esc(po['PO No.'])}</td>
+        <td><span class="brand-tag" style="background:${BRAND_COLORS[brand]||BRAND_COLORS['Other']}">${esc(brand)}</span></td>
+        <td>${esc(po['Cable Size'])}</td>
+        <td class="num">${fmtNum(po['Price/Unit (THB)'])}</td>
+        <td class="num">${fmtCost(po['Total (THB)'])}</td>
+      </tr>`;
+    }).join('');
+
+    wrap.innerHTML = `<div class="price-chart-wrap"><canvas id="price-chart"></canvas></div>
+      <table class="po-history-table">
+        <thead><tr><th>วันที่</th><th>PO No.</th><th>Brand</th><th>เบอร์</th><th style="text-align:right">ราคา/เมตร</th><th style="text-align:right">รวม</th></tr></thead>
+        <tbody>${historyRows}</tbody>
+      </table>`;
+
+    if (priceChartInstance) priceChartInstance.destroy();
+    const ctx = document.getElementById('price-chart').getContext('2d');
+    priceChartInstance = new Chart(ctx, {
+      type: 'line',
+      data: { labels, datasets },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { title: { display: true, text: 'บาท/เมตร' } } },
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+  }
+}
+
+function onSizeFilterChange(val) {
+  currentSizeFilter = val;
+  renderPricePanel();
+}
+
+// ---------- Cable usage pie (by cable gauge) ----------
+let usageChartInstance = null;
+function renderUsagePie(cableTypes) {
+  const bySize = {};
+  cableTypes.forEach(c => {
+    const { size } = detectBrandSize(c.name);
+    bySize[size] = (bySize[size] || 0) + c.total_demand_m;
+  });
+  const sizes = Object.keys(bySize).filter(s => bySize[s] > 0);
+  const wrap = document.getElementById('usage-pie-wrap');
+  if (!wrap) return;
+  if (sizes.length === 0) {
+    wrap.innerHTML = '<div class="price-empty">ยังไม่มีข้อมูลปริมาณการใช้สาย</div>';
+    return;
+  }
+  const total = sizes.reduce((s,k) => s + bySize[k], 0);
+  const legend = sizes.map(s => `<div class="pie-legend-row">
+      <div class="pie-legend-dot" style="background:${SIZE_COLORS[s] || '#a0aec0'}"></div>
+      <div class="pie-legend-name">เบอร์ ${esc(s)}</div>
+      <div class="pie-legend-val">${fmtNum(bySize[s])} m (${Math.round(bySize[s]/total*100)}%)</div>
+    </div>`).join('');
+  wrap.innerHTML = `<div class="pie-chart-wrap"><canvas id="usage-pie"></canvas></div><div class="pie-legend">${legend}</div>`;
+  if (usageChartInstance) usageChartInstance.destroy();
+  const ctx = document.getElementById('usage-pie').getContext('2d');
+  usageChartInstance = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: sizes.map(s => 'เบอร์ ' + s),
+      datasets: [{ data: sizes.map(s => bySize[s]), backgroundColor: sizes.map(s => SIZE_COLORS[s] || '#a0aec0') }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+  });
+}
+
+function renderCableCard(c, idx, purchaseOrders) {
   const info = statusInfo(c.status);
   const reorderOk = String(c.reorder_flag || '').toUpperCase() === 'OK';
-  const months = ['Apr-26','May-26','Jun-26','Jul-26','Aug-26','Sep-26'];
-  const maxVal = Math.max(1, ...months.map(m => Number(c.monthly_demand?.[m]) || 0));
-  const bars = months.map(m => {
+  const maxVal = Math.max(1, ...MONTHS.map(m => Number(c.monthly_demand?.[m]) || 0));
+  const bars = MONTHS.map(m => {
     const v = Number(c.monthly_demand?.[m]) || 0;
     const h = Math.max(2, Math.round((v / maxVal) * 60));
     return `<div class="month-bar-wrap">
@@ -380,21 +537,42 @@ function renderCableCard(c, idx) {
     </div>`;
   }).join('');
 
-  const projRows = (c.projects || []).map(p => `
+  const { brand, size } = detectBrandSize(c.name);
+  const poOptions = (purchaseOrders || []).filter(po => {
+    const poBrand = String(po['Brand'] || '').trim();
+    const poSize = String(po['Cable Size'] || '').trim();
+    return (!brand || poBrand.toLowerCase() === brand.toLowerCase()) && (!size || poSize === size);
+  });
+
+  const projRows = (c.projects || []).map(p => {
+    const remaining = Math.max(0, p.total_qty_m - p.deliveredQty);
+    const poSelectOptions = ['<option value="">—</option>'].concat(
+      poOptions.map(po => `<option value="${esc(po['PO No.'])}" ${po['PO No.']===p.poNo?'selected':''}>${esc(po['PO No.'])} (${fmtNum(po['Qty (m)'])} m)</option>`)
+    ).join('');
+    return `
     <tr>
-      <td>${esc(p.project)}</td>
-      <td class="qty">${fmtNum(p.total_qty_m)} m</td>
-      <td>${p.trigger ? '<span class="trigger-yes">🔺 Trigger</span>' : '<span class="trigger-no">—</span>'}</td>
+      <td><input class="edit-input name-input" type="text" value="${esc(p.project)}"
+          onchange="onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','Project',this.value,this)"></td>
+      <td><input class="edit-input qty-input" type="text" inputmode="numeric" value="${formatThousands(p.total_qty_m)}"
+          onfocus="this.value=this.value.replace(/,/g,'')"
+          onchange="this.value=formatThousands(this.value); onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','Total Qty (m)',parseThousands(this.value),this)"></td>
+      <td>
+        <select class="edit-input" onchange="onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','Award',this.value,this)">
+          ${AWARD_OPTIONS.map(o => `<option value="${o}" ${o===p.award?'selected':''}>${o || '—'}</option>`).join('')}
+        </select>
+      </td>
       <td>
         <select class="edit-input" onchange="onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','Status',this.value,this)">
           ${PROC_STATUS_OPTIONS.map(o => `<option value="${o}" ${o===p.status?'selected':''}>${o || '—'}</option>`).join('')}
         </select>
       </td>
-      <td><input class="edit-input" type="text" value="${esc(p.poNo)}" placeholder="PO No."
-          onchange="onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','PO No.',this.value,this)"></td>
-      <td><input class="edit-input qty-input" type="number" value="${esc(p.deliveredQty)}" placeholder="0"
-          onchange="onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','Delivered Qty (m)',Number(this.value)||0,this)"></td>
-    </tr>`).join('');
+      <td><select class="edit-input po-select" onchange="onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','PO No.',this.value,this)">${poSelectOptions}</select></td>
+      <td><input class="edit-input qty-input" type="text" inputmode="numeric" value="${formatThousands(p.deliveredQty)}"
+          onfocus="this.value=this.value.replace(/,/g,'')"
+          onchange="this.value=formatThousands(this.value); onFieldChange('${escAttr(c.name)}','${escAttr(p.project)}','Delivered Qty (m)',parseThousands(this.value),this)"></td>
+      <td class="qty remaining-val ${remaining===0?'zero':'pos'}">${fmtNum(remaining)} m</td>
+    </tr>`;
+  }).join('');
 
   const formId = 'addform-' + idx;
   return `
@@ -406,17 +584,17 @@ function renderCableCard(c, idx) {
       <span class="cable-toggle" id="toggle-icon-${idx}">▼ ดูรายละเอียด</span>
       <div class="cable-metrics" style="width:100%">
         <span><span class="m-lbl">ความต้องการรวม:</span> <span class="m-val">${fmtNum(c.total_demand_m)} m</span></span>
-        <span><span class="m-lbl">คงเหลือ:</span> <span class="m-val">${fmtNum(c.stock_on_hand)} m</span></span>
+        <span><span class="m-lbl">คงเหลือในสต็อก:</span> <span class="m-val">${fmtNum(c.stock_on_hand)} m</span></span>
         <span><span class="m-lbl">ขาด/เกิน:</span> <span class="m-val ${Number(c.shortage_m) < 0 ? 'neg' : ''}">${fmtNum(c.shortage_m)} m</span></span>
         <span><span class="m-lbl">ราคา/ม.:</span> <span class="m-val">${c.unit_price_thb_per_m ? '฿' + c.unit_price_thb_per_m : 'N/A'}</span></span>
         <span><span class="m-lbl">มูลค่ารวม:</span> <span class="m-val">${fmtCost(c.total_cost_thb)}</span></span>
-        <span><span class="m-lbl">โครงการกระตุ้นสั่งซื้อ:</span> <span class="m-val">${c.trigger_project_count ?? 0}</span></span>
+        <span><span class="m-lbl">Awarded แล้ว:</span> <span class="m-val">${c.trigger_project_count ?? 0} โครงการ</span></span>
       </div>
     </div>
     <div class="cable-detail" id="cable-detail-${idx}">
       <div class="month-bars">${bars}</div>
       ${projRows ? `<div style="overflow-x:auto"><table class="proj-table">
-        <thead><tr><th>โครงการ</th><th style="text-align:right">ปริมาณ</th><th>Trigger</th><th>สถานะจัดซื้อ</th><th>PO No.</th><th>ส่งมอบแล้ว (m)</th></tr></thead>
+        <thead><tr><th>โครงการ</th><th style="text-align:right">ปริมาณ (m)</th><th>Award</th><th>สถานะจัดซื้อ</th><th>PO No.</th><th style="text-align:right">ส่งมอบแล้ว (m)</th><th style="text-align:right">คงเหลือต้องส่ง</th></tr></thead>
         <tbody>${projRows}</tbody>
       </table></div>` : '<div style="font-size:12px;color:#a0aec0;padding:10px 0">ไม่มีโครงการที่ต้องใช้สายชนิดนี้ในช่วงนี้</div>'}
       <form id="${formId}" class="add-project-form" onsubmit="event.preventDefault(); addProject('${escAttr(c.name)}', document.getElementById('${formId}'))">
@@ -429,7 +607,7 @@ function renderCableCard(c, idx) {
           <input name="jul" type="number" placeholder="Jul-26">
           <input name="aug" type="number" placeholder="Aug-26">
           <input name="sep" type="number" placeholder="Sep-26">
-          <label><input name="trigger" type="checkbox"> Trigger</label>
+          <label><input name="award" type="checkbox"> Award</label>
           <input name="notes" type="text" placeholder="Notes">
           <button type="submit">บันทึก</button>
         </div>
@@ -446,6 +624,7 @@ function toggleCable(idx) {
 }
 
 let lastLiveData = null;
+let lastBuilt = null;
 
 function renderAll(liveData, isLive) {
   lastLiveData = isLive ? liveData : null;
@@ -454,14 +633,14 @@ function renderAll(liveData, isLive) {
     : (liveData.generated_at ? `🟡 ข้อมูลสำรอง (ไฟล์ static) · ${liveData.generated_at}` : '🟡 ข้อมูล Demo');
   document.getElementById('today-date').textContent = new Date().toLocaleDateString('th-TH', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
 
-  let cables, gt;
+  let cables, gt, purchaseOrders;
   if (isLive) {
     const built = buildCableTypes(liveData);
-    cables = built.cableTypes;
-    gt = built.grandTotal;
+    cables = built.cableTypes; gt = built.grandTotal;
+    purchaseOrders = liveData.purchaseOrders || [];
+    lastBuilt = built;
   } else {
-    cables = liveData.cable_types || [];
-    gt = liveData.grand_total || {};
+    cables = liveData.cable_types || []; gt = liveData.grand_total || {}; purchaseOrders = [];
   }
 
   const criticalCount = cables.filter(c => statusInfo(c.status).cls === 'critical').length;
@@ -477,27 +656,59 @@ function renderAll(liveData, isLive) {
   </div>`;
 
   if (!isLive) {
-    html += `<div class="alert">⚠️ กำลังแสดงข้อมูลสำรอง (ไม่ real-time) เพราะดึงจาก Google Sheet ไม่ได้ตอนนี้ — ลองกดรีเฟรชอีกครั้ง ถ้ายังไม่ได้เช็ค Web App URL / สิทธิ์การ Deploy</div>`;
+    html += `<div class="alert">⚠️ กำลังแสดงข้อมูลสำรอง (ไม่ real-time) เพราะดึงจาก Google Sheet ไม่ได้ตอนนี้ — ลองกดรีเฟรชอีกครั้ง</div>`;
   }
 
   html += `<div class="section">
-    <div class="section-header sh-navy">🔌 สรุปสถานะสาย DC แต่ละประเภท (แก้ไขได้ในตาราง — เปลี่ยนแล้วบันทึกกลับ Sheet ทันที)<span class="count">${cables.length} ชนิด</span></div>
-    ${cables.map((c,i) => renderCableCard(c,i)).join('')}
-  </div>`;
-
-  html += `<div class="section">
-    <div class="section-header sh-teal">📈 Price Monitoring — ราคากลาง/ราคาตลาด<span class="count">รอข้อมูล</span></div>
-    <div class="price-placeholder">
-      <div class="big">📈</div>
-      รอข้อมูลราคา PO ย้อนหลังของสาย DC จาก White เพื่อสร้างกราฟราคาต่อหน่วยตามช่วงเวลา<br>
-      ส่งมาได้เลย เช่น: วันที่เปิด PO, ชนิดสาย, Supplier, ราคาต่อเมตร — จะขึ้นกราฟเทรนด์ราคาให้ใช้ต่อรองได้
+    <div class="section-header sh-teal">📈 Price Monitoring — ราคากลาง/ราคาตลาด (ย้อนหลัง)<span class="count" id="po-count">0 รายการ</span></div>
+    <div class="price-panel">
+      <div class="price-controls">
+        <label>เลือกเบอร์สาย:
+          <select id="price-size-filter" onchange="onSizeFilterChange(this.value)">
+            <option value="all">ทั้งหมด</option>
+            <option value="4">เบอร์ 4</option>
+            <option value="6">เบอร์ 6</option>
+            <option value="10">เบอร์ 10</option>
+            <option value="16">เบอร์ 16</option>
+          </select>
+        </label>
+      </div>
+      <div id="price-monitoring-body"></div>
+      <form id="addpoform" class="add-po-form" onsubmit="event.preventDefault(); addPO(document.getElementById('addpoform'))">
+        <span class="add-project-toggle" onclick="document.getElementById('addpoform').classList.toggle('open')">+ เพิ่มประวัติการเปิด PO</span>
+        <div class="add-project-fields">
+          <input name="date" type="date" required>
+          <input name="pono" type="text" placeholder="PO No." required>
+          <select name="brand"><option>Draka</option><option>Prysmian</option><option>Link</option><option>Other</option></select>
+          <select name="size"><option>4</option><option>6</option><option>10</option><option>16</option></select>
+          <input name="qty" type="number" placeholder="ปริมาณ (m)">
+          <input name="price" type="number" step="0.01" placeholder="ราคา/เมตร">
+          <input name="project" type="text" placeholder="โครงการ (ถ้ามี)">
+          <button type="submit">บันทึก</button>
+        </div>
+      </form>
     </div>
   </div>`;
 
+  html += `<div class="section">
+    <div class="section-header sh-purple">🥧 ภาพรวมการใช้สาย DC ตามเบอร์</div>
+    <div class="pie-panel" id="usage-pie-wrap"></div>
+  </div>`;
+
+  html += `<div class="section">
+    <div class="section-header sh-navy">🔌 สรุปสถานะสาย DC แต่ละประเภท (แก้ไขได้ในตาราง — เปลี่ยนแล้วบันทึกกลับ Sheet ทันที)<span class="count">${cables.length} ชนิด</span></div>
+    ${cables.map((c,i) => renderCableCard(c,i,purchaseOrders)).join('')}
+  </div>`;
+
   document.getElementById('main-content').innerHTML = html;
+
+  if (isLive) {
+    renderPricePanel();
+    renderUsagePie(cables);
+  }
 }
 
-async function refreshData() {
+async function refreshData(silent) {
   try {
     const data = await fetchLive(WEBAPP_URL);
     renderAll(data, true);
@@ -509,8 +720,10 @@ async function refreshData() {
     } catch (e2) {
       console.error('Fallback also failed', e2);
       renderAll({ generated_at: null, grand_total: {}, cable_types: [] }, false);
-      document.getElementById('main-content').insertAdjacentHTML('afterbegin',
-        `<div class="alert">⚠️ ยังโหลดข้อมูลจริงไม่ได้เลย (เช็คอินเทอร์เน็ต หรือลองกดรีเฟรชอีกครั้ง)</div>`);
+      if (!silent) {
+        document.getElementById('main-content').insertAdjacentHTML('afterbegin',
+          `<div class="alert">⚠️ ยังโหลดข้อมูลจริงไม่ได้เลย (เช็คอินเทอร์เน็ต หรือลองกดรีเฟรชอีกครั้ง)</div>`);
+      }
     }
   }
 }

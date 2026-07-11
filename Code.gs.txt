@@ -1,0 +1,206 @@
+/**
+ * DC Cable Forecast - Google Apps Script Web App API (v2)
+ * ผูกกับ Google Sheet "02 DC forecast cleaned"
+ *
+ * v2 เพิ่ม: แถบ "Purchase Orders" (Price Monitoring), เปลี่ยนคอลัมน์ Trigger -> Award
+ *
+ * doGet  -> คืนข้อมูลทั้งหมดเป็น JSON (ให้ dashboard อ่านแบบ real-time)
+ * doPost -> รับคำสั่งแก้ไข/เพิ่มข้อมูล แล้วเขียนกลับลง Sheet จริง
+ *
+ * วิธีอัปเดต: วางไฟล์นี้ทับของเดิมใน Apps Script editor -> รัน setupLedgerColumns อีกครั้ง
+ * -> Deploy > Manage deployments > แก้ไข (ไอคอนดินสอ) > Version: New version > Deploy
+ * (ใช้ "New version" ไม่ใช่ "New deployment" เพื่อให้ URL เดิมยังใช้ได้)
+ */
+
+const CABLE_SHEETS = ['Link #6', 'Link #4', 'Prysmian #4', 'Prysmian #6', 'Prysmian #10', 'Prysmian #16'];
+const LEDGER_COLS = ['Status', 'PO No.', 'Delivered Qty (m)'];
+// Status ที่ใช้ได้: "Not Ordered" | "PO Issued" | "Delivered"
+// Award ที่ใช้ได้: "Yes" | "No"  (Yes = โปรเจค Award แล้วจริง นับเป็นความต้องการจริง ไม่ใช่แค่คาดการณ์)
+
+const PO_SHEET_NAME = 'Purchase Orders';
+const PO_HEADERS = ['Date', 'PO No.', 'Brand', 'Cable Size', 'Qty (m)', 'Price/Unit (THB)', 'Total (THB)', 'Project', 'Notes'];
+
+// ---------- Setup (รันครั้งเดียวจาก Apps Script editor: เลือกฟังก์ชัน setupLedgerColumns แล้วกด Run) ----------
+function setupLedgerColumns() {
+  const ss = SpreadsheetApp.getActive();
+  CABLE_SHEETS.forEach(function (name) {
+    const sh = ss.getSheetByName(name);
+    if (!sh) return;
+    const data = sh.getDataRange().getValues();
+    let headerRow = -1;
+    for (let r = 0; r < data.length; r++) {
+      if (data[r].indexOf('Item') !== -1 && data[r].indexOf('Project') !== -1) { headerRow = r; break; }
+    }
+    if (headerRow === -1) return;
+    let headers = sh.getRange(headerRow + 1, 1, 1, sh.getLastColumn()).getValues()[0];
+
+    // เปลี่ยนชื่อคอลัมน์ Trigger -> Award (ค่า Yes/No เดิมไม่เปลี่ยน)
+    const trigIdx = headers.indexOf('Trigger');
+    if (trigIdx !== -1) {
+      sh.getRange(headerRow + 1, trigIdx + 1).setValue('Award');
+      headers[trigIdx] = 'Award';
+    }
+
+    let lastCol = headers.length;
+    while (lastCol > 0 && !headers[lastCol - 1]) lastCol--;
+    LEDGER_COLS.forEach(function (col) {
+      if (headers.indexOf(col) === -1) {
+        sh.getRange(headerRow + 1, lastCol + 1).setValue(col);
+        lastCol++;
+      }
+    });
+  });
+  setupPOSheet_();
+  SpreadsheetApp.getUi().alert('อัปเดตคอลัมน์ (Award / Status / PO No. / Delivered Qty) และสร้างแถบ "Purchase Orders" เรียบร้อย');
+}
+
+function setupPOSheet_() {
+  const ss = SpreadsheetApp.getActive();
+  let sh = ss.getSheetByName(PO_SHEET_NAME);
+  if (!sh) {
+    sh = ss.insertSheet(PO_SHEET_NAME);
+  }
+  const firstRow = sh.getRange(1, 1, 1, PO_HEADERS.length).getValues()[0];
+  const hasHeaders = PO_HEADERS.every(function (h, i) { return firstRow[i] === h; });
+  if (!hasHeaders) {
+    sh.getRange(1, 1, 1, PO_HEADERS.length).setValues([PO_HEADERS]);
+    sh.getRange(1, 1, 1, PO_HEADERS.length).setFontWeight('bold');
+  }
+}
+
+// ---------- Helpers ----------
+function findHeaderRow_(values) {
+  for (let r = 0; r < values.length; r++) {
+    if (values[r].indexOf('Item') !== -1 && values[r].indexOf('Project') !== -1) return r;
+  }
+  return -1;
+}
+
+function parseCableSheet_(sh) {
+  const values = sh.getDataRange().getValues();
+  const headerRow = findHeaderRow_(values);
+  if (headerRow === -1) return { name: sh.getName(), headers: [], projects: [] };
+  const headers = values[headerRow].map(function (h) { return String(h).trim(); });
+  const projects = [];
+  for (let r = headerRow + 1; r < values.length; r++) {
+    const row = values[r];
+    const projectCell = String(row[headers.indexOf('Project')] || '').trim();
+    if (!projectCell || projectCell.toUpperCase() === 'TOTALS') break;
+    const obj = { _row: r + 1 };
+    headers.forEach(function (h, i) { if (h) obj[h] = row[i]; });
+    projects.push(obj);
+  }
+  return { name: sh.getName(), headers: headers, headerRow: headerRow + 1, projects: projects };
+}
+
+function parseSummary_() {
+  const sh = SpreadsheetApp.getActive().getSheetByName('Summary');
+  if (!sh) return null;
+  const values = sh.getDataRange().getValues();
+  return values.filter(function (row) { return row.some(function (c) { return c !== ''; }); });
+}
+
+function parsePOSheet_() {
+  const ss = SpreadsheetApp.getActive();
+  const sh = ss.getSheetByName(PO_SHEET_NAME);
+  if (!sh) return [];
+  const values = sh.getDataRange().getValues();
+  if (values.length < 2) return [];
+  const headers = values[0].map(function (h) { return String(h).trim(); });
+  const rows = [];
+  for (let r = 1; r < values.length; r++) {
+    const row = values[r];
+    if (!row.some(function (c) { return c !== ''; })) continue;
+    const obj = { _row: r + 1 };
+    headers.forEach(function (h, i) { if (h) obj[h] = row[i]; });
+    rows.push(obj);
+  }
+  return rows;
+}
+
+// ---------- doGet: อ่านข้อมูลทั้งหมด ----------
+function doGet(e) {
+  const result = {
+    updatedAt: new Date().toISOString(),
+    summary: parseSummary_(),
+    cableTypes: CABLE_SHEETS.map(function (name) {
+      const sh = SpreadsheetApp.getActive().getSheetByName(name);
+      return sh ? parseCableSheet_(sh) : null;
+    }).filter(Boolean),
+    purchaseOrders: parsePOSheet_()
+  };
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ---------- doPost: แก้ไข / เพิ่มข้อมูล ----------
+// ส่ง body เป็น JSON string, Content-Type: text/plain (กัน CORS preflight)
+function doPost(e) {
+  let payload;
+  try {
+    payload = JSON.parse(e.postData.contents);
+  } catch (err) {
+    return jsonOut_({ ok: false, error: 'invalid JSON body' });
+  }
+
+  if (payload.action === 'addPO') {
+    setupPOSheet_();
+    const sh = SpreadsheetApp.getActive().getSheetByName(PO_SHEET_NAME);
+    const headers = sh.getRange(1, 1, 1, sh.getLastColumn()).getValues()[0];
+    const newRow = headers.map(function (h) {
+      return (payload.row && payload.row[h] !== undefined) ? payload.row[h] : '';
+    });
+    sh.appendRow(newRow);
+    return jsonOut_({ ok: true });
+  }
+
+  const ss = SpreadsheetApp.getActive();
+  const sh = ss.getSheetByName(payload.sheet);
+  if (!sh) return jsonOut_({ ok: false, error: 'sheet not found: ' + payload.sheet });
+
+  const values = sh.getDataRange().getValues();
+  const headerRow = findHeaderRow_(values);
+  if (headerRow === -1) return jsonOut_({ ok: false, error: 'header row not found' });
+  const headers = values[headerRow].map(function (h) { return String(h).trim(); });
+
+  if (payload.action === 'updateProject') {
+    let targetRow = -1;
+    const projCol = headers.indexOf('Project');
+    for (let r = headerRow + 1; r < values.length; r++) {
+      const cell = String(values[r][projCol] || '').trim();
+      if (cell.toUpperCase() === 'TOTALS') break;
+      if (cell === payload.project) { targetRow = r; break; }
+    }
+    if (targetRow === -1) return jsonOut_({ ok: false, error: 'project not found: ' + payload.project });
+    Object.keys(payload.updates || {}).forEach(function (key) {
+      const colIdx = headers.indexOf(key);
+      if (colIdx !== -1) {
+        sh.getRange(targetRow + 1, colIdx + 1).setValue(payload.updates[key]);
+      }
+    });
+    return jsonOut_({ ok: true });
+  }
+
+  if (payload.action === 'addProject') {
+    let totalsRow = -1;
+    const projCol = headers.indexOf('Project');
+    for (let r = headerRow + 1; r < values.length; r++) {
+      const cell = String(values[r][projCol] || '').trim();
+      if (cell.toUpperCase() === 'TOTALS') { totalsRow = r; break; }
+    }
+    const insertAt = totalsRow === -1 ? values.length : totalsRow;
+    sh.insertRowBefore(insertAt + 1);
+    const newRowData = headers.map(function (h) {
+      return (payload.row && payload.row[h] !== undefined) ? payload.row[h] : '';
+    });
+    sh.getRange(insertAt + 1, 1, 1, newRowData.length).setValues([newRowData]);
+    return jsonOut_({ ok: true });
+  }
+
+  return jsonOut_({ ok: false, error: 'unknown action: ' + payload.action });
+}
+
+function jsonOut_(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
