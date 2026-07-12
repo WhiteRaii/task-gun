@@ -183,7 +183,7 @@ select.edit-input.po-select { min-width: 130px; }
       <div id="today-date">—</div>
       <div class="data-status" id="data-status">⏳ กำลังโหลด...</div>
       <div class="header-actions">
-        <a class="refresh-btn" href="https://docs.google.com/spreadsheets/d/1GIoB3nwqbwvWQFyyfReSQZVBt-MgaNuI/edit" target="_blank" rel="noopener" style="text-decoration:none">📝 เปิด Google Sheet</a>
+        <a class="refresh-btn" href="https://docs.google.com/spreadsheets/d/1BhKm4fKUoir1zjFFBrai1d07BZLPndL0943Zr2pM1Fo/edit" target="_blank" rel="noopener" style="text-decoration:none">📝 เปิด Google Sheet</a>
         <button class="refresh-btn" onclick="location.reload()">🔄 รีเฟรช</button>
       </div>
     </div>
@@ -201,7 +201,7 @@ select.edit-input.po-select { min-width: 130px; }
 
 <script>
 // ===== Data sources =====
-const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzqaEc5KsAIyNx7CBrUcAqvTjD90EMTQBS5bgfI-7MB_2DNd4Ki5LHWMo1zAi9ogtq7/exec';
+const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxSchHEPEhMy0f6P-yvbPF872MCqarn7-ubNXusG2s8z28jbCRQYtXFjTtdhalIGFdDKw/exec';
 const FALLBACK_JSON_URL = 'https://raw.githubusercontent.com/WhiteRaii/task-gun/main/data/material-forecast.json';
 
 function toJsdelivr(url) {
@@ -419,70 +419,188 @@ async function addPO(formEl) {
   }
 }
 
-// ---------- Price Monitoring ----------
+// ---------- Price Monitoring: ราคาทองแดง (LME) vs ราคาซื้อสาย DC จริง (Price_PO) ----------
 let priceChartInstance = null;
 let currentSizeFilter = 'all';
 
+function parseCableSizeNum(s) {
+  s = String(s || '');
+  let m = s.match(/x\s*(\d+)/i);
+  if (m) return parseInt(m[1], 10);
+  m = s.match(/#\s*(\d+)/);
+  if (m) return parseInt(m[1], 10);
+  m = s.match(/(\d+)/);
+  return m ? parseInt(m[1], 10) : null;
+}
+function parseNum(v) {
+  if (v === null || v === undefined || v === '') return NaN;
+  return parseFloat(String(v).replace(/,/g, ''));
+}
+function pearsonR(xs, ys) {
+  const n = xs.length;
+  if (n < 2) return null;
+  const mx = xs.reduce((a,b)=>a+b,0)/n, my = ys.reduce((a,b)=>a+b,0)/n;
+  let num=0, dx2=0, dy2=0;
+  for (let i=0;i<n;i++){ const dx=xs[i]-mx, dy=ys[i]-my; num+=dx*dy; dx2+=dx*dx; dy2+=dy*dy; }
+  const den = Math.sqrt(dx2*dy2);
+  return den === 0 ? null : num/den;
+}
+function mdyToMonthKey(s) {
+  // ข้อมูลทองแดงพิมพ์แบบ M/1/YYYY เช่น "7/1/2026" = ก.ค. 2026 (เดือน/วัน/ปี)
+  const parts = String(s||'').split('/');
+  if (parts.length !== 3) return null;
+  const mm = parseInt(parts[0],10), yyyy = parseInt(parts[2],10);
+  if (!mm || !yyyy) return null;
+  return yyyy + '-' + String(mm).padStart(2,'0');
+}
+function isoToMonthKey(s) {
+  const m = String(s||'').match(/^(\d{4})-(\d{2})/);
+  return m ? (m[1] + '-' + m[2]) : null;
+}
+const MONTH_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function monthKeyLabel(key) {
+  const [y,m] = key.split('-');
+  return MONTH_SHORT[parseInt(m,10)-1] + '-' + y.slice(2);
+}
+
 function renderPricePanel() {
-  const purchaseOrders = (lastLiveData && lastLiveData.purchaseOrders) || [];
+  const pm = (lastLiveData && lastLiveData.priceMonitoring) || {};
+  const pricePO = pm.pricePO || [];
+  const copperMUC = pm.copperMUC || [];
   const wrap = document.getElementById('price-monitoring-body');
   if (!wrap) return;
 
-  const filtered = purchaseOrders.filter(po => currentSizeFilter === 'all' || String(po['Cable Size']).trim() === currentSizeFilter);
-  const withDate = filtered.filter(po => po['Date']);
+  document.getElementById('po-count').textContent = pricePO.length + ' รายการ (Item Master)';
 
-  document.getElementById('po-count').textContent = purchaseOrders.length + ' รายการ';
-
-  if (withDate.length === 0) {
-    wrap.innerHTML = `<div class="price-empty">📈 ยังไม่มีข้อมูลราคา PO ย้อนหลัง<br>เพิ่มด้วยฟอร์มด้านล่าง หรือกรอกตรงในแถบ "Purchase Orders" ใน Google Sheet ได้เลย</div>`;
-  } else {
-    const sorted = [...withDate].sort((a,b) => new Date(a['Date']) - new Date(b['Date']));
-    const labels = [...new Set(sorted.map(po => po['Date']))];
-    const byBrand = {};
-    sorted.forEach(po => {
-      const brand = String(po['Brand'] || 'Other').trim() || 'Other';
-      if (!byBrand[brand]) byBrand[brand] = {};
-      byBrand[brand][po['Date']] = Number(po['Price/Unit (THB)']) || 0;
-    });
-    const datasets = Object.keys(byBrand).map(brand => ({
-      label: brand,
-      data: labels.map(d => byBrand[brand][d] !== undefined ? byBrand[brand][d] : null),
-      borderColor: BRAND_COLORS[brand] || BRAND_COLORS['Other'],
-      backgroundColor: 'transparent',
-      spanGaps: true,
-      tension: 0.25,
-    }));
-
-    const historyRows = [...filtered].sort((a,b) => new Date(b['Date']) - new Date(a['Date'])).map(po => {
-      const brand = String(po['Brand'] || 'Other').trim() || 'Other';
-      return `<tr>
-        <td>${esc(po['Date'])}</td>
-        <td>${esc(po['PO No.'])}</td>
-        <td><span class="brand-tag" style="background:${BRAND_COLORS[brand]||BRAND_COLORS['Other']}">${esc(brand)}</span></td>
-        <td>${esc(po['Cable Size'])}</td>
-        <td class="num">${fmtNum(po['Price/Unit (THB)'])}</td>
-        <td class="num">${fmtCost(po['Total (THB)'])}</td>
-      </tr>`;
-    }).join('');
-
-    wrap.innerHTML = `<div class="price-chart-wrap"><canvas id="price-chart"></canvas></div>
-      <table class="po-history-table">
-        <thead><tr><th>วันที่</th><th>PO No.</th><th>Brand</th><th>เบอร์</th><th style="text-align:right">ราคา/เมตร</th><th style="text-align:right">รวม</th></tr></thead>
-        <tbody>${historyRows}</tbody>
-      </table>`;
-
-    if (priceChartInstance) priceChartInstance.destroy();
-    const ctx = document.getElementById('price-chart').getContext('2d');
-    priceChartInstance = new Chart(ctx, {
-      type: 'line',
-      data: { labels, datasets },
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        scales: { y: { title: { display: true, text: 'บาท/เมตร' } } },
-        plugins: { legend: { position: 'bottom' } }
-      }
-    });
+  if (pricePO.length === 0 || copperMUC.length === 0) {
+    wrap.innerHTML = `<div class="price-empty">📈 ยังไม่มีข้อมูลราคา — เพิ่มแท็บ Price_PO / Price_MUC ใน Google Sheet แล้วรีเฟรช</div>`;
+    return;
   }
+
+  const copperByMonth = {};
+  copperMUC.forEach(row => {
+    const key = mdyToMonthKey(row['วันเดือนปี']);
+    const price = parseNum(row['ล่าสุด']);
+    if (key && !isNaN(price)) copperByMonth[key] = price;
+  });
+  const sortedMonths = Object.keys(copperByMonth).sort();
+
+  const filtered = pricePO.filter(po => {
+    const sz = parseCableSizeNum(po['ขนาดสาย']);
+    return currentSizeFilter === 'all' || String(sz) === String(currentSizeFilter);
+  });
+
+  const poPoints = filtered.map(po => {
+    const size = parseCableSizeNum(po['ขนาดสาย']);
+    const price = parseNum(po['ราคาล่าสุด (บาท/m)']);
+    const dateISO = po['วันที่ซื้อล่าสุด'];
+    const monthKey = isoToMonthKey(dateISO);
+    return {
+      size, price, monthKey,
+      normPrice: (size && !isNaN(price)) ? price / size : null
+    };
+  }).filter(p => p.monthKey && p.normPrice !== null);
+
+  const poMonths = poPoints.map(p => p.monthKey);
+  let minPoMonth = poMonths.length ? poMonths.reduce((a,b)=>a<b?a:b) : null;
+  let startIdx = minPoMonth ? sortedMonths.indexOf(minPoMonth) : -1;
+  if (startIdx === -1) startIdx = Math.max(0, sortedMonths.length - 24);
+  startIdx = Math.max(0, startIdx - 2);
+  const labels = sortedMonths.slice(startIdx);
+  const copperLine = labels.map(m => copperByMonth[m] ?? null);
+
+  const bySize = {};
+  poPoints.forEach(p => {
+    const k = String(p.size);
+    if (!bySize[k]) bySize[k] = [];
+    bySize[k].push(p);
+  });
+  const scatterDatasets = Object.keys(bySize).sort().map(sizeKey => ({
+    type: 'line',
+    label: 'สาย ' + sizeKey + 'mm² (บาท/m ÷ ' + sizeKey + ')',
+    data: labels.map(lab => {
+      const hit = bySize[sizeKey].find(p => p.monthKey === lab);
+      return hit ? hit.normPrice : null;
+    }),
+    showLine: false,
+    pointRadius: 6, pointHoverRadius: 8,
+    borderColor: SIZE_COLORS[sizeKey] || '#a0aec0',
+    backgroundColor: SIZE_COLORS[sizeKey] || '#a0aec0',
+    yAxisID: 'y1',
+  }));
+
+  const datasets = [
+    {
+      type: 'line',
+      label: 'ราคาทองแดง LME (USD/ton)',
+      data: copperLine,
+      borderColor: '#c0392b',
+      backgroundColor: 'transparent',
+      borderWidth: 2.5,
+      pointRadius: 2,
+      spanGaps: true,
+      yAxisID: 'y',
+    },
+    ...scatterDatasets
+  ];
+
+  // ความสัมพันธ์: ใช้ทุกขนาด (ไม่กรอง) เพื่อให้ค่า r นิ่ง ไม่ขยับตาม filter
+  const allPoints = pricePO.map(po => {
+    const size = parseCableSizeNum(po['ขนาดสาย']);
+    const price = parseNum(po['ราคาล่าสุด (บาท/m)']);
+    const monthKey = isoToMonthKey(po['วันที่ซื้อล่าสุด']);
+    const copper = monthKey ? copperByMonth[monthKey] : null;
+    if (!size || isNaN(price) || copper == null) return null;
+    return { norm: price / size, copper };
+  }).filter(Boolean);
+  const r = allPoints.length >= 4 ? pearsonR(allPoints.map(p=>p.copper), allPoints.map(p=>p.norm)) : null;
+
+  let insightHtml = '';
+  if (r !== null) {
+    const strength = Math.abs(r) >= 0.5 ? 'ปานกลาง-แรง' : (Math.abs(r) >= 0.3 ? 'อ่อน-ปานกลาง' : 'อ่อนมาก/แทบไม่มี');
+    const direction = r >= 0 ? 'ทิศทางเดียวกัน' : 'สวนทางกัน';
+    insightHtml = `<div class="alert" style="background:#ebf8ff;border-color:#90cdf4;color:#2c5282">
+      💡 <b>ความสัมพันธ์ราคาทองแดง ↔ ราคาซื้อสาย DC จริง:</b> r = ${r.toFixed(2)} (${strength}, ${direction})
+      — คำนวณจาก ${allPoints.length} จุดข้อมูล (ราคา/mm² เทียบราคาทองแดงเดือนเดียวกัน)<br>
+      <span style="font-size:11px;opacity:0.85">หมายเหตุ: ข้อมูลจาก Item Master เป็น "ราคาล่าสุด" ต่อ vendor ไม่ใช่ประวัติทุกครั้งที่ซื้อ — ราคาสายมักไม่ pass-through ตามตลาดทองแดงทันที เพราะมีต้นทุนอื่นปนและ vendor ล็อกราคาตามสัญญา</span>
+    </div>`;
+  }
+
+  const historyRows = [...pricePO].sort((a,b) => String(b['วันที่ซื้อล่าสุด']).localeCompare(String(a['วันที่ซื้อล่าสุด']))).map(po => {
+    const brand = String(po['แบรนด์ (สันนิษฐาน)'] || 'Other');
+    const brandKey = Object.keys(BRAND_COLORS).find(k => brand.toLowerCase().includes(k.toLowerCase())) || 'Other';
+    return `<tr>
+      <td>${esc(po['วันที่ซื้อล่าสุด'])}</td>
+      <td>${esc(po['ชื่อสินค้า'])}</td>
+      <td><span class="brand-tag" style="background:${BRAND_COLORS[brandKey]}">${esc(brand)}</span></td>
+      <td>${esc(po['ขนาดสาย'])}</td>
+      <td>${esc(po['Vendor'])}</td>
+      <td class="num">${fmtNum(po['ราคาล่าสุด (บาท/m)'])}</td>
+      <td class="num">${fmtNum(po['ราคาเฉลี่ย (บาท/m)'])}</td>
+    </tr>`;
+  }).join('');
+
+  wrap.innerHTML = `<div class="price-chart-wrap"><canvas id="price-chart"></canvas></div>
+    ${insightHtml}
+    <table class="po-history-table">
+      <thead><tr><th>ซื้อล่าสุด</th><th>สินค้า</th><th>แบรนด์</th><th>ขนาด</th><th>Vendor</th><th style="text-align:right">ราคาล่าสุด</th><th style="text-align:right">ราคาเฉลี่ย</th></tr></thead>
+      <tbody>${historyRows}</tbody>
+    </table>`;
+
+  if (priceChartInstance) priceChartInstance.destroy();
+  const ctx = document.getElementById('price-chart').getContext('2d');
+  priceChartInstance = new Chart(ctx, {
+    data: { labels: labels.map(monthKeyLabel), datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'nearest', intersect: false },
+      scales: {
+        y: { position: 'left', title: { display: true, text: 'ทองแดง USD/ton' } },
+        y1: { position: 'right', title: { display: true, text: 'บาท/m ÷ ขนาด(mm²)' }, grid: { drawOnChartArea: false } }
+      },
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
+    }
+  });
 }
 
 function onSizeFilterChange(val) {
