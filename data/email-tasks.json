@@ -1,319 +1,158 @@
 {
-  "date": "2026-07-11",
-  "generated_at": "2026-07-11T09:50:00",
+  "date": "2026-07-12",
+  "generated_at": "2026-07-12T08:10:00",
   "notices": [
     {
-      "id": "notice_20260711_001",
+      "id": "notice_20260712_001",
       "from": "wanvisa.inm@gunkul.com",
-      "subject": "Re: Re: <<URGENT>> PO#THPO26-000134 FNC-GULF1",
-      "note": "Wanvisa เจรจา revise PO/LC เร่งด่วนกับ Sungrow (FNC-GULF1) โดยตรง — ไม่เกี่ยวกับ White โดยตรง"
+      "subject": "REQ QTN : PV MODULE JINKO _ JKM620N-66HL4M-BDV",
+      "note": "Wanvisa ขอราคา PV Module Jinko จาก vendor โดยตรง (White cc)"
     },
     {
-      "id": "notice_20260711_002",
+      "id": "notice_20260712_002",
       "from": "pastraporn.iss@gunkul.com",
-      "subject": "นำส่ง PO#SBPO26-000043 งานติดตั้งระบบไฟฟ้า Murata Newland Phase2 GSP1",
-      "note": "พี่เก๋นำส่ง PO ให้พี่แตนโดยตรง — งานของพี่เก๋เอง"
+      "subject": "KWE : Request crane with man power to support the blade exchange work at turbine KWE-T10",
+      "note": "Pastraporn ขอราคาเครนจาก vendor โดยตรง (White cc)"
     },
     {
-      "id": "notice_20260711_003",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "Purchase Order No. [CCPO26-001297] - ค่าบริการ CoP/ประชาพิจารณ์ Lee Pattana Saraburi Phase2",
-      "note": "พี่เก๋ส่ง PO เงื่อนไขจ่ายเงินให้ที่ปรึกษาโดยตรง — งานของพี่เก๋เอง"
-    },
-    {
-      "id": "notice_20260711_004",
+      "id": "notice_20260712_003",
       "from": "wanvisa.inm@gunkul.com",
-      "subject": "Re: <<URGENT>>: Draft LC : PO#THPO26-000116 Inverter for FNC",
-      "note": "Wanvisa เจรจาวันที่ Shipment/LC กับ Sungrow โดยตรง — ไม่เกี่ยวกับ White โดยตรง"
+      "subject": "REQ QTN : SOLAR MODULE HI-MOX10 #LONGI",
+      "note": "Wanvisa ขอราคา Solar Module Longi จาก vendor โดยตรง (White cc)"
     },
     {
-      "id": "notice_20260711_005",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "นำส่ง PO#CCPO26-001303 งานวิศวกรโยธา สามัญ LPS2-2",
-      "note": "พี่เก๋นำส่ง PO ให้ผู้รับจ้างโดยตรง — งานของพี่เก๋เอง"
-    },
-    {
-      "id": "notice_20260711_006",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "ขอนำส่ง PO เลขที่ CCPO26-001302 สถาปนิกออกแบบ LPS2-2",
-      "note": "พี่เก๋นำส่ง PO ให้สถาปนิกโดยตรง — งานของพี่เก๋เอง"
-    },
-    {
-      "id": "notice_20260711_007",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "นำส่ง Comment - โครงการ Murata Newland Phase 2 (ผู้รับเหมา 1)",
-      "note": "พี่เก๋ขอ Comment แก้ไขราคากลับมาภายใน 15/7/69 กับผู้รับเหมาโดยตรง"
-    },
-    {
-      "id": "notice_20260711_008",
-      "from": "pastraporn.iss@gunkul.com",
-      "subject": "นำส่ง Comment - โครงการ Murata Newland Phase 2 (ผู้รับเหมา 2)",
-      "note": "พี่เก๋ขอ Comment แก้ไขราคากลับมาภายใน 15/7/69 กับผู้รับเหมาอีกรายโดยตรง"
-    },
-    {
-      "id": "notice_20260711_009",
+      "id": "notice_20260712_004",
       "from": "wanvisa.inm@gunkul.com",
-      "subject": "Re: REQ QTN: SOLAR MODULE HI-MOX10 #LONGI",
-      "note": "Wanvisa ติดตามเงื่อนไข credit term กับ VST ECS โดยตรง — ไม่เกี่ยวกับ White โดยตรง"
+      "subject": "QTN No.#QT2026050660 - LONGi HI-MOX10 | LR7-72HVD-645M // SIWASOLAR",
+      "note": "Wanvisa ติดตามอายุใบเสนอราคาและวันส่ง PO กับ vendor Siwasolar โดยตรง (White cc)"
     },
     {
-      "id": "notice_20260711_010",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "QTN No.#QT2026050660 - LONGi HI-MOX10 // SIWASOLAR",
-      "note": "Wanvisa ขอให้ Vendor hold ราคาและยืนยัน deadline ส่ง PO โดยตรง — ไม่เกี่ยวกับ White โดยตรง"
+      "id": "notice_20260712_005",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "รบกวนเสนอราคาโครงการ One Venture",
+      "note": "Pastraporn ขอราคาโครงการ One Venture จาก vendor โดยตรง (White cc)"
+    },
+    {
+      "id": "notice_20260712_006",
+      "from": "anuwat.kan@gunkul.com",
+      "subject": "TYR: ขอใบเสนอราคางานสำรวจสภาพชั้นดินและงานสำรวจสภาพภูมิประเทศ (โครงการ บริษัท ทุ่งใหญ่การยาง จำกัด)",
+      "note": "Anuwat ขอราคางานสำรวจโครงการทุ่งใหญ่การยางจาก vendor โดยตรง (White cc)"
+    },
+    {
+      "id": "notice_20260712_007",
+      "from": "watcharaphong.noi@gunkul.com",
+      "subject": "Lock ระบบ การส่ง PR เข้าอนุมัติ บนระบบ E-Doc",
+      "note": "ทีม Tech แจ้งเวียน Lock ระบบส่ง PR เข้าอนุมัติใน E-Doc ทั้งบริษัท — เป็นแจ้งเวียนทั่วไป"
     }
   ],
   "tasks": [
     {
-      "id": "email_20260711_001",
+      "id": "email_20260712_001",
       "priority": 1,
-      "description": "หัวหน้า (จากมติประชุม PROC-PMT 22 มิ.ย.) มอบหมายให้เปิด PO และทำสัญญาให้เสร็จภายใน 10 ก.ค. — เลยกำหนดแล้ว ต้องเร่งดำเนินการด่วน",
-      "from": "executiveassistant@e.read.ai",
-      "subject": "PROC-PMT's weekly meeting(Solar Roof) June 22 | Read Meeting Report",
-      "deadline": "10-07-2026",
-      "project": "Solar Roof (PROC-PMT)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_002",
-      "priority": 1,
-      "description": "นพรัตน์ขอราคาอุปกรณ์ DC Cable (Prysmian 1x6–1x10 SQ.MM) เพื่อส่งขออนุมัติ Budget โครงการ Triumph — รอราคาอยู่ ค้างมาตั้งแต่ 10 ก.ค.",
-      "from": "nopparat.dee@gunkul.com",
-      "subject": "TME: สอบราคา DC Cable",
-      "deadline": null,
-      "project": "Triumph Motorcycles (TME)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_003",
-      "priority": 1,
-      "description": "นพรัตน์ขอราคาอุปกรณ์ PV Mounting Structure เพื่อส่งขออนุมัติ Budget โครงการ Triumph — รอราคาอยู่ ค้างมาตั้งแต่ 10 ก.ค.",
-      "from": "nopparat.dee@gunkul.com",
-      "subject": "TME: สอบราคา Mounting for Budget Approve",
-      "deadline": null,
-      "project": "Triumph Motorcycles (TME)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_004",
-      "priority": 2,
-      "description": "ตรวจสอบสรุปประชุม FS Fusion (STA Myanmar) เรื่องขอบเขตงานและต้นทุนโครงการติดตั้ง (ประชุม 10 ก.ค.)",
-      "from": "executiveassistant@e.read.ai",
-      "subject": "Meeting W/ FS Fusion (STA Myanma) — Read Meeting Report",
-      "deadline": null,
-      "project": "FS Fusion (STA Myanmar)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_005",
-      "priority": 2,
-      "description": "ติดตามผลจาก PLP เรื่องขอเอกสารรับรองอุปกรณ์ Mounting (ลูกค้าปฏิเสธเซ็นรับของเนื่องจากไม่มีเอกสาร) — ส่งคำขอไปแล้ว รอการตอบกลับ",
-      "from": "sirasit.thumsa@plp.com",
-      "subject": "ขอหนังสือรับรอง Mounting PLP",
-      "deadline": null,
-      "project": "PLP Mounting Certification",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_006",
-      "priority": 2,
-      "description": "ตรวจสอบใบเสนอราคา QT2026070161 จาก AK Center Part ที่ส่งมาโดยตรง",
-      "from": "akcenterpart@gmail.com",
-      "subject": "ใบเสนอราคาครับ",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_007",
-      "priority": 2,
-      "description": "ดำเนินการส่งต่อใบแจ้งหนี้ Sungrow Power Optimizer 600W (Wacharee) เพื่อชำระเงินล่วงหน้า",
-      "from": "wachareen@pienterprise.co.th",
-      "subject": "ขอใบเสนอราคา Sungrow Power Optimizer 600W (SP600S-long 1:1)",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_008",
-      "priority": 2,
-      "description": "Vendor Precise ยกเลิกใบเสนอราคาเดิม (ระบุชื่อโครงการผิด) — ติดตามขอใบเสนอราคาที่แก้ไขใหม่สำหรับ CT/VT/LBS",
-      "from": "kanlayani.k@precise.co.th",
-      "subject": "RE: TME: สอบราคา CT, VT & LBS - Triumph 3,591.36 kWp",
-      "deadline": null,
-      "project": "Triumph Motorcycles (TME)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_009",
-      "priority": 2,
-      "description": "ได้เลขที่ PR ใหม่ CCPUPRV-003424 (ตามที่ขอเปิดใหม่จาก CCPUPRV-002677) — ดำเนินการจัดซื้อต่อ",
-      "from": "phonchita.phu@gunkul.com",
-      "subject": "Re: ขอให้เปิด PR [CCPUPRV-002677] ใหม่",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_010",
-      "priority": 2,
-      "description": "ตรวจสอบว่าได้รับใบเสนอราคา Mounting จาก Sunforson ครบถ้วนหรือไม่ (Vendor แจ้งว่าส่งแล้ว 10:30 วันก่อน) — เลยกำหนดส่ง 10 ก.ค. มาแล้ว",
-      "from": "jullajit@sunforson.com",
-      "subject": "[Urgent] ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมฯ",
-      "deadline": null,
-      "project": "กรมส่งเสริมฯ Mounting",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_011",
-      "priority": 2,
-      "description": "ตรวจสอบใบแจ้งหนี้ Sunforson (CDPO26-00241 เดือน 6-7) เพื่อดำเนินการชำระเงิน",
-      "from": "bee@sunforson.com",
-      "subject": "Invoice Gunkul Solar CDPO26-00241 โครงการ Groof STOCK (Lot 3)",
-      "deadline": null,
-      "project": "Groof STOCK (Lot 3)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_012",
-      "priority": 2,
-      "description": "สอบถามราคากับคุณจารุกิตต์สำหรับงานยื่นขอ อ.1 เพิ่มเติม โครงการสระแก้ว แล้วแจ้งกลับทีม",
-      "from": "khemakorn.tas@gunkul.com",
-      "subject": "Fwd: STASG: ทำแบบยื่นขอ อ.1 เพิ่มเติม",
-      "deadline": null,
-      "project": "Sri Trang Sa Kaeo (STASG)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_013",
-      "priority": 2,
-      "description": "ตอบคำถามทางเทคนิค 5 ข้อ (PV datasheet, ground mount type, ความสูง, slope, wind load) ให้ Sunforson เพื่อดำเนินการเสนอราคา Mounting และเสาเข็ม",
-      "from": "jullajit@sunforson.com",
-      "subject": "[RFQ] ขอใบเสนอราคางาน Mounting System และเสาเข็ม - Lee Pattana Saraburi Phase 2 (มิเตอร์2)",
-      "deadline": null,
-      "project": "Lee Pattana Saraburi Phase 2 (Meter 2)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_014",
-      "priority": 3,
-      "description": "Vendor ใหม่ LONGi (คุณวนิดา) แนะนำตัวเพื่อเสนอโซลาร์ Utility Scale หลังคุยโทรศัพท์กับคุณโกสิทธิ์ — พิจารณาบันทึกเป็น vendor รายใหม่",
-      "from": "kajinawanida@longi.com",
-      "subject": "Introduced LONGi Thailand Utility Scale Solar for GUNKUL",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_015",
-      "priority": 3,
-      "description": "รับทราบ Delivery Order จาก Integra R.E. (DO BSS-DO2607-237/238) — ดาวน์โหลดเอกสารเก็บเป็นหลักฐาน",
-      "from": "webshop.thailand@integra-re.com",
-      "subject": "[Integra R.E. Co., Ltd.] Delivery Order Notification",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_016",
-      "priority": 3,
-      "description": "ตรวจสอบเอกสาร 'จรรยาบรรณทางธุรกิจของคู่ค้า' ที่ผู้รับเหมาลงนามส่งกลับมา และยืนยันการรับเอกสาร",
-      "from": "bangkhla.engineer@gmail.com",
-      "subject": "Re: ขอความร่วมมือลงนามรับทราบ จรรยาบรรณทางธุรกิจของคู่ค้า",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_017",
-      "priority": 3,
-      "description": "ได้รับใบเสนอราคาจากคุณฤทธิ์พงศ์ รัตนบุรี (ไม่ทราบบริบทชัดเจน) — ตรวจสอบและยืนยันที่มา",
-      "from": "rittiphong2529@gmail.com",
-      "subject": "เอกสารใบเสนอราคา นายฤทธิ์พงศ์ รัตนบุรี",
-      "deadline": null,
-      "project": null,
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_020",
-      "priority": 3,
-      "description": "หัวหน้า (Thanathip) ขอให้การเงินเร่งจ่ายผู้รับเหมา SK3 (PO CCPO26-000673) ภายใน 13 ก.ค. เนื่องจากล่าช้าจากแผนเดิม",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "ขอความอนุเคราะห์เร่งชำระเงินเพื่อสนับสนุนแผนงานโครงการ Hon Chuan",
+      "description": "ติดตามใบเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ ที่ White ส่ง RFQ ถึง vendor — กำหนดส่งภายใน 10 ก.ค. 69 (เลยกำหนดแล้ว) — ตรวจสอบใน PR/PO พบ PR CCPUPRV-003229 (SR269) รอ PA อยู่ deadline 13-07-2026",
+      "from": "thanakrit.kha@gunkul.com",
+      "subject": "[Urgent]ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
       "deadline": "13-07-2026",
-      "project": "Hon Chuan",
+      "project": "SR269 กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_004",
+      "priority": 2,
+      "description": "จัดหาผู้รับเหมา (ผรม) เข้างานติดตั้ง Solar Rooftop โครงการ CJX ภายในวันที่ 21-31 ก.ค. 2569 — ประสานทีมจัดซื้อเตรียมล่วงหน้า",
+      "from": "sataporn.kad@gunkul.com",
+      "subject": "CJX- จัดหา ผรม เข้างานติดตั้ง ภายในวันที่ 21-31 กค 2569",
+      "deadline": "21-07-2026",
+      "project": "CJX",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_002",
+      "priority": 2,
+      "description": "สอบถามคุณจารุกิตต์เรื่องราคาทำแบบยื่นขอ อ.1 เพิ่มเติมของโครงการสระแก้ว ตามที่ Khemakorn forward มา (ส่งถึง White โดยตรง)",
+      "from": "khemakorn.tas@gunkul.com",
+      "subject": "Fwd: STASG : ทำแบบยื่นขอ อ.1 เพิ่มเติม",
+      "deadline": null,
+      "project": "สระแก้ว (SP006 Solar Floating Sri Trang)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_003",
+      "priority": 2,
+      "description": "สืบราคา CT แรงสูง, VT แรงสูง และ LBS สำหรับโครงการ Triumph Motorcycles (Thailand) 3,591.36 kWp เพื่อเปิด PR ตามที่ Khun Uae ส่งถึง White โดยตรง",
+      "from": "uae.khe@gunkul.com",
+      "subject": "TME : สอบราคา CT, VT & LBS ของโครงการ Triumph Motorcycles (Thailand) Co., Ltd. ขนาด 3,591.36 kWp",
+      "deadline": null,
+      "project": "Triumph Motorcycles (Thailand)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_005",
+      "priority": 2,
+      "description": "จัดทำใบเสนอราคางานจัดจ้างทำประชาพิจารณ์ + รายงาน CoP โครงการ Shunyi ตามที่ nadwadee.pri แจ้งฝ่ายจัดซื้อ",
+      "from": "nadwadee.pri@gunkul.com",
+      "subject": "โครงการ Shunyi : ขอใบเสนอราคางานจัดจ้างการทำประชาพิจารณ์ + รายงาน CoP",
+      "deadline": null,
+      "project": "Shunyi",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_006",
+      "priority": 2,
+      "description": "ติดตามใบเสนอราคา Solar Mounting Structure (L-Feet) โครงการต้นคูณ (TKF) ที่ White ส่ง RFQ ถึง vendor แล้ว — ยังไม่พบ PR/PO ในระบบ",
+      "from": "thanakrit.kha@gunkul.com",
+      "subject": "ขอใบเสนอราคา Solar Mounting Structure – โครงการต้นคูณ (TKF)",
+      "deadline": null,
+      "project": "ต้นคูณ (TKF)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_007",
+      "priority": 3,
+      "description": "รับทราบ — Thanathip ส่ง RFQ ขอราคางานโครงการ CJx ถึง vendor คุณสุรพงษ์โดยตรง (White cc)",
+      "from": "thanathip.won@gunkul.com",
+      "subject": "โครงการ CJx : RFQ",
+      "deadline": null,
+      "project": "CJx",
       "is_fyi": true,
       "type": "email"
     },
     {
-      "id": "email_20260711_018",
+      "id": "email_20260712_008",
       "priority": 3,
-      "description": "พี่ปาล์มสอบถามปริมาณ Power Optimizer (141 ตัว) กับน้องเจน สำหรับทำ Budget Inverter/Optimizer/Battery — White cc รับทราบ",
-      "from": "pannawat.cha@gunkul.com",
-      "subject": "Re: SYS: สอบราคา Inverter, Optimizer and Battery for Budget Approve",
+      "description": "รับทราบ — Thanathip ตามสถานะฟอร์มข้อมูลคู่ค้า 30 ราย สำหรับ TCC BEST Awards กับคุณ Sirinya (White cc)",
+      "from": "thanathip.won@gunkul.com",
+      "subject": "Re: ขอความร่วมมือจัดส่งข้อมูลคู่ค้า 30 ราย เพื่อประกอบการสมัครรางวัล TCC BEST Awards 24th",
       "deadline": null,
       "project": null,
       "is_fyi": true,
       "type": "email"
     },
     {
-      "id": "email_20260711_019",
+      "id": "email_20260712_009",
       "priority": 3,
-      "description": "พี่ปาล์มแจ้ง (cc): อย่าเพิ่งเปิด PR สำหรับ TME/Triumph รอยืนยันเงื่อนไขส่งของ Huawei ก่อน",
-      "from": "pannawat.cha@gunkul.com",
-      "subject": "Re: TME: สอบราคา PV Module, Inverter, Optimizer, Data Logger, BESS - Triumph Motorcycles",
-      "deadline": null,
-      "project": "Triumph Motorcycles (TME)",
-      "is_fyi": true,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_021",
-      "priority": 3,
-      "description": "หัวหน้าแจ้ง Award โครงการ CJx 10 สาขา — กระบวนการ PO อยู่ระหว่างดำเนินการ",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "Re: โครงการ CJx: RFQ",
-      "deadline": null,
-      "project": "CJx",
-      "is_fyi": true,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_022",
-      "priority": 3,
-      "description": "หัวหน้าแจ้ง: ทีม GSC เปิด PR ได้แล้วสำหรับผู้รับเหมาโครงการ CJx (มีผู้เสนอราคาแล้ว 2 ราย)",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "CJX- จัดหา ผรม เข้างานติดตั้ง ภายในวันที่ 21-31 กค 2569",
-      "deadline": null,
-      "project": "CJx",
-      "is_fyi": true,
-      "type": "email"
-    },
-    {
-      "id": "email_20260711_023",
-      "priority": 3,
-      "description": "หัวหน้า forward คำขอราคาต่ออายุ TeamViewer จาก IT Manager ให้ทีมจัดซื้อดำเนินการ (FYA)",
+      "description": "รับทราบ — Thanathip forward คำขอราคาต่ออายุ Teamviewer ให้ Wanvisa/nathanun ดำเนินการ (White cc)",
       "from": "thanathip.won@gunkul.com",
       "subject": "Re: ขอราคา ต่ออายุ Teamviewer ตามรายละเอียด",
       "deadline": null,
       "project": null,
+      "is_fyi": true,
+      "type": "email"
+    },
+    {
+      "id": "email_20260712_010",
+      "priority": 3,
+      "description": "รับทราบ — Pannawat ส่งขอราคาโครงการ Triump ถึง vendor คุณอดิสรโดยตรง (White cc)",
+      "from": "pannawat.cha@gunkul.com",
+      "subject": "รบกวนเสนอราคาโครงการ Triump",
+      "deadline": null,
+      "project": "Triump",
       "is_fyi": true,
       "type": "email"
     }
