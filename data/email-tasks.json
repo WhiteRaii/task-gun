@@ -1,159 +1,158 @@
 {
-  "date": "2026-07-12",
-  "generated_at": "2026-07-12T08:10:00",
+  "date": "2026-07-13",
+  "generated_at": "2026-07-13T16:35:00",
   "notices": [
     {
-      "id": "notice_20260712_001",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "REQ QTN : PV MODULE JINKO _ JKM620N-66HL4M-BDV",
-      "note": "Wanvisa ขอราคา PV Module Jinko จาก vendor โดยตรง (White cc)"
+      "id": "notice_20260713_001",
+      "from": "janeaksorn.suw@gunkul.com",
+      "subject": "Re: SYS : สอบราคา Inverter, Optimizer and Battery for Budget Approve",
+      "note": "ขอราคา DC Cable ถึง Pastraporn โดยตรง สำหรับ SYS Budget Approve — White ถูก CC เท่านั้น"
     },
     {
-      "id": "notice_20260712_002",
+      "id": "notice_20260713_002",
+      "from": "nopparat.npelectric17@gmail.com",
+      "subject": "Re: รบกวนเสนอราคา DB ของโครงการ HomePro 34 โครงการ ขนาดติดตั้งรวม 12,097 kWp",
+      "note": "Vendor ส่งใบเสนอราคาถึง Pastraporn โดยตรง — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_003",
+      "from": "nopparat.npelectric17@gmail.com",
+      "subject": "Re: รบกวนเสนอราคางานโครงการ Shunyi ขนาด 4,397.76 kWp",
+      "note": "Vendor ส่งใบเสนอราคาถึง Pastraporn โดยตรง — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_004",
+      "from": "khonthanan.sae@gunkul.com",
+      "subject": "Re: รบกวนขอใบเสนอราคา Inverter & BESS โครงการ One Venture",
+      "note": "ระบุ FYI ชัดเจน ถึง Pannawat โดยตรง — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_005",
+      "from": "ekcsales002@ekkaraj.co.th",
+      "subject": "ตอบกลับ x3: Purchase Order No. [WPPO26-000004-2] - AutoCAD Renewal",
+      "note": "Vendor ส่งเอกสารถึงคุณอุเทน — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_006",
+      "from": "phatcharin.sue@gunkul.com",
+      "subject": "GFPTB-NTJ-GUE-TR-006 Material For Approve -MEC 1st lot (Approved)",
+      "note": "แจ้งอนุมัติเอกสารแบบ broadcast ถึงหลายฝ่าย — White อยู่ใน CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_007",
+      "from": "wanvisa.inm@gunkul.com",
+      "subject": "REQ QTN : แผง LONGi HI-MOX10 | LR7-72HVD-645M",
+      "note": "Wanvisa ขอใบเสนอราคาจาก supplier โดยตรง — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_008",
+      "from": "janeaksorn.suw@gunkul.com",
+      "subject": "Re: SYS : สอบราคา PV Modules for Budget Approve",
+      "note": "ระบุ FYI ชัดเจน ถึง Thanathip/Wanvisa — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_009",
+      "from": "reanna.liu@sungrowpower.com",
+      "subject": "Re: Re: << URGENT>> : Draft LC : Purchase Order PO#THPO26-000116 Inverter for FNC.",
+      "note": "Vendor (Sungrow) ตอบเรื่อง LC ถึง Wanvisa โดยตรง แจ้งว่าไม่ต้องแก้ไข LC — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_010",
       "from": "pastraporn.iss@gunkul.com",
-      "subject": "KWE : Request crane with man power to support the blade exchange work at turbine KWE-T10",
-      "note": "Pastraporn ขอราคาเครนจาก vendor โดยตรง (White cc)"
+      "subject": "Purchase Order: PO No. WLPO26-000011 - KWE",
+      "note": "Pastraporn ส่ง PO ถึง vendor โดยตรง — White ถูก CC เท่านั้น"
     },
     {
-      "id": "notice_20260712_003",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "REQ QTN : SOLAR MODULE HI-MOX10 #LONGI",
-      "note": "Wanvisa ขอราคา Solar Module Longi จาก vendor โดยตรง (White cc)"
-    },
-    {
-      "id": "notice_20260712_004",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "QTN No.#QT2026050660 - LONGi HI-MOX10 | LR7-72HVD-645M // SIWASOLAR",
-      "note": "Wanvisa ติดตามอายุใบเสนอราคาและวันส่ง PO กับ vendor Siwasolar โดยตรง (White cc)"
-    },
-    {
-      "id": "notice_20260712_005",
+      "id": "notice_20260713_011",
       "from": "pastraporn.iss@gunkul.com",
-      "subject": "รบกวนเสนอราคาโครงการ One Venture",
-      "note": "Pastraporn ขอราคาโครงการ One Venture จาก vendor โดยตรง (White cc)"
+      "subject": "Purchase Order No. [CCPO26-001304] - Modify Busbar โรงพยาบาลสมเด็จพระสังฆราช องค์ที่ 17",
+      "note": "Pastraporn ส่ง PO ถึง vendor โดยตรง — White ถูก CC เท่านั้น"
     },
     {
-      "id": "notice_20260712_006",
-      "from": "anuwat.kan@gunkul.com",
-      "subject": "TYR: ขอใบเสนอราคางานสำรวจสภาพชั้นดินและงานสำรวจสภาพภูมิประเทศ (โครงการ บริษัท ทุ่งใหญ่การยาง จำกัด)",
-      "note": "Anuwat ขอราคางานสำรวจโครงการทุ่งใหญ่การยางจาก vendor โดยตรง (White cc)"
+      "id": "notice_20260713_012",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "นำส่ง Comment โครงการ LEE FEED MILL (Lpp2-1 และ Lpp2-2) — 7 ฉบับถึง vendor หลายราย",
+      "note": "Pastraporn นำส่ง Comment ครั้งที่ 1 ถึง vendor หลายรายโดยตรง (นพรัตน์, pico-enterprise, rsig, sk_project2) ให้แก้ไขและเสนอราคากลับภายใน 16/7/26 — White ถูก CC เท่านั้น"
     },
     {
-      "id": "notice_20260712_007",
-      "from": "watcharaphong.noi@gunkul.com",
-      "subject": "Lock ระบบ การส่ง PR เข้าอนุมัติ บนระบบ E-Doc",
-      "note": "ทีม Tech แจ้งเวียน Lock ระบบส่ง PR เข้าอนุมัติใน E-Doc ทั้งบริษัท — เป็นแจ้งเวียนทั่วไป"
+      "id": "notice_20260713_013",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Re: LPP2-2 : สอบราคา ปั๊มน้ำ และ แท้งค์น้ำ",
+      "note": "Pastraporn ส่งใบเสนอราคา Pump/Tank ถึงเพื่อนร่วมงานภายในโดยตรง — White ถูก CC เท่านั้น"
+    },
+    {
+      "id": "notice_20260713_014",
+      "from": "laps@scb.co.th",
+      "subject": "Pre-Payment / Pre-Credit / Post-Payment Advice Notification (3 ฉบับ)",
+      "note": "แจ้งเตือนอัตโนมัติจาก SCB เรื่องการโอนเงินให้ บจก.กฤษฎา กู๊ดคาร์ — เพื่อทราบด้านการเงิน ไม่ต้องดำเนินการจาก White"
+    },
+    {
+      "id": "notice_20260713_015",
+      "from": "meetingroom@gunkul.com",
+      "subject": "คำเชิญ: Meeting W/Supplier Panel วันอังคาร 14 ก.ค. 2026 10:00-12:00 น.",
+      "note": "นัดประชุมกับ Supplier Panel พรุ่งนี้ จัดโดย Pastraporn — เพื่อเตรียมตัวเข้าร่วม"
+    },
+    {
+      "id": "notice_20260713_016",
+      "from": "executiveassistant@e.read.ai",
+      "subject": "Read AI Meeting Reports: PROC-PMT weekly meeting และ Monthly Solar Projects and Financial Status (13 ก.ค.)",
+      "note": "สรุปรายงานประชุมอัตโนมัติจาก Read AI สำหรับการประชุมที่ White เข้าร่วมวันนี้ — เพื่อทราบ"
     }
   ],
   "tasks": [
     {
-      "id": "email_20260712_001",
+      "id": "email_20260713_001",
       "priority": 1,
-      "description": "ติดตามใบเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ ที่ White ส่ง RFQ ถึง vendor — กำหนดส่งภายใน 10 ก.ค. 69 (เลยกำหนดแล้ว) — ตรวจสอบใน PR/PO พบ PR CCPUPRV-003229 (SR269) รอ PA อยู่ deadline 13-07-2026",
-      "from": "thanakrit.kha@gunkul.com",
-      "subject": "[Urgent]ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
-      "deadline": "13-07-2026",
-      "project": "SR269 กรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
+      "description": "ติดตามสถานะสอบราคา Mounting โครงการ BKK Bank — ยังไม่มีแผนงานเข้าติดตั้ง เนื่องจากอยู่ระหว่างสอบราคาเพื่อยื่นบิดโครงการ",
+      "from": "outumporn.tho@gunkul.com",
+      "subject": "Re: (URGENT )รบกวนสอบราคา Mounting โครงการ bkk bank ให้ด่วนหน่อยนะคะ",
+      "deadline": "ด่วน",
+      "project": "BKK Bank",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260712_004",
+      "id": "email_20260713_002",
       "priority": 2,
-      "description": "จัดหาผู้รับเหมา (ผรม) เข้างานติดตั้ง Solar Rooftop โครงการ CJX ภายในวันที่ 21-31 ก.ค. 2569 — ประสานทีมจัดซื้อเตรียมล่วงหน้า",
-      "from": "sataporn.kad@gunkul.com",
-      "subject": "CJX- จัดหา ผรม เข้างานติดตั้ง ภายในวันที่ 21-31 กค 2569",
-      "deadline": "21-07-2026",
-      "project": "CJX",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260712_002",
-      "priority": 2,
-      "description": "สอบถามคุณจารุกิตต์เรื่องราคาทำแบบยื่นขอ อ.1 เพิ่มเติมของโครงการสระแก้ว ตามที่ Khemakorn forward มา (ส่งถึง White โดยตรง)",
-      "from": "khemakorn.tas@gunkul.com",
-      "subject": "Fwd: STASG : ทำแบบยื่นขอ อ.1 เพิ่มเติม",
+      "description": "หาราคาอุปกรณ์ Structure for PV Modules และ DC Cable เพื่อส่งขออนุมัติ Budget โครงการ SYS (Siam Yamoto Steel, กำลังผลิต 205.21 kWp)",
+      "from": "janeaksorn.suw@gunkul.com",
+      "subject": "SYS : สอบราคา Structure for PV Modules , DC Cable for Budget Approve",
       "deadline": null,
-      "project": "สระแก้ว (SP006 Solar Floating Sri Trang)",
+      "project": "SYS (Siam Yamoto Steel)",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260712_003",
+      "id": "email_20260713_003",
       "priority": 2,
-      "description": "สืบราคา CT แรงสูง, VT แรงสูง และ LBS สำหรับโครงการ Triumph Motorcycles (Thailand) 3,591.36 kWp เพื่อเปิด PR ตามที่ Khun Uae ส่งถึง White โดยตรง",
-      "from": "uae.khe@gunkul.com",
-      "subject": "TME : สอบราคา CT, VT & LBS ของโครงการ Triumph Motorcycles (Thailand) Co., Ltd. ขนาด 3,591.36 kWp",
+      "description": "ตรวจสอบใบเสนอราคา PV Mounting จาก Chiko สำหรับโครงการ One Venture (OVT) — เป็นเวอร์ชันที่แก้ไข BOQ แล้ว",
+      "from": "chiko.mkt2@gmail.com",
+      "subject": "Re: ขอใบเสนอราคาอุปกรณ์ PV Mounting โครงการ One Venture Company Limited (OVT) - มีการแก้ไข BOQ",
       "deadline": null,
-      "project": "Triumph Motorcycles (Thailand)",
+      "project": "One Venture (OVT)",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260712_005",
+      "id": "email_20260713_004",
       "priority": 2,
-      "description": "จัดทำใบเสนอราคางานจัดจ้างทำประชาพิจารณ์ + รายงาน CoP โครงการ Shunyi ตามที่ nadwadee.pri แจ้งฝ่ายจัดซื้อ",
-      "from": "nadwadee.pri@gunkul.com",
-      "subject": "โครงการ Shunyi : ขอใบเสนอราคางานจัดจ้างการทำประชาพิจารณ์ + รายงาน CoP",
+      "description": "ตรวจสอบและดำเนินการ Invoice จาก Sunforson สำหรับ CDPO26-000269 (SCB Rattanathibet) — สินค้าส่งถึงคลังแล้วเมื่อ 10 ก.ค.",
+      "from": "bee@sunforson.com",
+      "subject": "Invoice Gunkul Solar for CDPO26-000269 SCB Rattanathibet",
       "deadline": null,
-      "project": "Shunyi",
+      "project": "SCB Rattanathibet",
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260712_006",
-      "priority": 2,
-      "description": "ติดตามใบเสนอราคา Solar Mounting Structure (L-Feet) โครงการต้นคูณ (TKF) ที่ White ส่ง RFQ ถึง vendor แล้ว — ยังไม่พบ PR/PO ในระบบ",
-      "from": "thanakrit.kha@gunkul.com",
-      "subject": "ขอใบเสนอราคา Solar Mounting Structure – โครงการต้นคูณ (TKF)",
-      "deadline": null,
-      "project": "ต้นคูณ (TKF)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260712_007",
+      "id": "email_20260713_005",
       "priority": 3,
-      "description": "รับทราบ — Thanathip ส่ง RFQ ขอราคางานโครงการ CJx ถึง vendor คุณสุรพงษ์โดยตรง (White cc)",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "โครงการ CJx : RFQ",
+      "description": "รับทราบอัพเดตโครงการศรีตรัง พม่า (STAY) — ส่งข้อมูลให้ผรม. FS Fusion แล้ว ตรวจสอบว่าต้องติดตามต่อหรือไม่",
+      "from": "jirachawin.pro@gunkul.com",
+      "subject": "Re: [Tender - PU] ขอสอบราคา ผรม. โครงการศรีตรัง พม่า (STAY)",
       "deadline": null,
-      "project": "CJx",
-      "is_fyi": true,
-      "type": "email"
-    },
-    {
-      "id": "email_20260712_008",
-      "priority": 3,
-      "description": "รับทราบ — Thanathip ตามสถานะฟอร์มข้อมูลคู่ค้า 30 ราย สำหรับ TCC BEST Awards กับคุณ Sirinya (White cc)",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "Re: ขอความร่วมมือจัดส่งข้อมูลคู่ค้า 30 ราย เพื่อประกอบการสมัครรางวัล TCC BEST Awards 24th",
-      "deadline": null,
-      "project": null,
-      "is_fyi": true,
-      "type": "email"
-    },
-    {
-      "id": "email_20260712_009",
-      "priority": 3,
-      "description": "รับทราบ — Thanathip forward คำขอราคาต่ออายุ Teamviewer ให้ Wanvisa/nathanun ดำเนินการ (White cc)",
-      "from": "thanathip.won@gunkul.com",
-      "subject": "Re: ขอราคา ต่ออายุ Teamviewer ตามรายละเอียด",
-      "deadline": null,
-      "project": null,
-      "is_fyi": true,
-      "type": "email"
-    },
-    {
-      "id": "email_20260712_010",
-      "priority": 3,
-      "description": "รับทราบ — Pannawat ส่งขอราคาโครงการ Triump ถึง vendor คุณอดิสรโดยตรง (White cc)",
-      "from": "pannawat.cha@gunkul.com",
-      "subject": "รบกวนเสนอราคาโครงการ Triump",
-      "deadline": null,
-      "project": "Triump",
-      "is_fyi": true,
+      "project": "ศรีตรัง พม่า (STAY)",
+      "is_fyi": false,
       "type": "email"
     }
   ]
