@@ -422,6 +422,7 @@ async function addPO(formEl) {
 // ---------- Price Monitoring: ราคาทองแดง (LME) vs ราคาซื้อสาย DC จริง (Price_PO) ----------
 let priceChartInstance = null;
 let currentSizeFilter = 'all';
+let currentGranFilter = 'month';
 
 function parseCableSizeNum(s) {
   s = String(s || '');
@@ -454,13 +455,36 @@ function mdyToMonthKey(s) {
   return yyyy + '-' + String(mm).padStart(2,'0');
 }
 function isoToMonthKey(s) {
-  const m = String(s||'').match(/^(\d{4})-(\d{2})/);
+  const m = String(s||'').match(/^(\d{4})[-/](\d{2})/);
   return m ? (m[1] + '-' + m[2]) : null;
 }
 const MONTH_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function monthKeyLabel(key) {
   const [y,m] = key.split('-');
   return MONTH_SHORT[parseInt(m,10)-1] + '-' + y.slice(2);
+}
+function aggregateByYear(byMonth) {
+  const byYear = {};
+  Object.keys(byMonth).forEach(m => {
+    const y = m.slice(0,4);
+    if (!byYear[y]) byYear[y] = { sum: 0, n: 0 };
+    byYear[y].sum += byMonth[m];
+    byYear[y].n += 1;
+  });
+  const out = {};
+  Object.keys(byYear).forEach(y => out[y] = byYear[y].sum / byYear[y].n);
+  return out;
+}
+function periodKeyFromMonthKey(monthKey, gran) {
+  return gran === 'year' ? monthKey.slice(0,4) : monthKey;
+}
+function periodLabel(p, gran) {
+  return gran === 'year' ? p : monthKeyLabel(p);
+}
+function brandOf(po) {
+  const raw = String(po['แบรนด์ (สันนิษฐาน)'] || 'Other');
+  const key = Object.keys(BRAND_COLORS).find(k => raw.toLowerCase().includes(k.toLowerCase()));
+  return key || 'Other';
 }
 
 function renderPricePanel() {
@@ -477,13 +501,16 @@ function renderPricePanel() {
     return;
   }
 
+  const gran = currentGranFilter;
+
   const copperByMonth = {};
   copperMUC.forEach(row => {
     const key = mdyToMonthKey(row['วันเดือนปี']);
     const price = parseNum(row['ล่าสุด']);
     if (key && !isNaN(price)) copperByMonth[key] = price;
   });
-  const sortedMonths = Object.keys(copperByMonth).sort();
+  const copperByPeriod = gran === 'year' ? aggregateByYear(copperByMonth) : copperByMonth;
+  const sortedPeriods = Object.keys(copperByPeriod).sort();
 
   const filtered = pricePO.filter(po => {
     const sz = parseCableSizeNum(po['ขนาดสาย']);
@@ -493,47 +520,59 @@ function renderPricePanel() {
   const poPoints = filtered.map(po => {
     const size = parseCableSizeNum(po['ขนาดสาย']);
     const price = parseNum(po['ราคาล่าสุด (บาท/m)']);
-    const dateISO = po['วันที่ซื้อล่าสุด'];
-    const monthKey = isoToMonthKey(dateISO);
+    const monthKey = isoToMonthKey(po['วันที่ซื้อล่าสุด']);
+    const period = monthKey ? periodKeyFromMonthKey(monthKey, gran) : null;
     return {
-      size, price, monthKey,
+      size, price, monthKey, period,
+      brand: brandOf(po),
+      name: po['ชื่อสินค้า'],
       normPrice: (size && !isNaN(price)) ? price / size : null
     };
-  }).filter(p => p.monthKey && p.normPrice !== null);
+  }).filter(p => p.period && p.normPrice !== null);
 
-  const poMonths = poPoints.map(p => p.monthKey);
-  let minPoMonth = poMonths.length ? poMonths.reduce((a,b)=>a<b?a:b) : null;
-  let startIdx = minPoMonth ? sortedMonths.indexOf(minPoMonth) : -1;
-  if (startIdx === -1) startIdx = Math.max(0, sortedMonths.length - 24);
-  startIdx = Math.max(0, startIdx - 2);
-  const labels = sortedMonths.slice(startIdx);
-  const copperLine = labels.map(m => copperByMonth[m] ?? null);
+  const poPeriods = poPoints.map(p => p.period);
+  let minPoPeriod = poPeriods.length ? poPeriods.reduce((a,b)=>a<b?a:b) : null;
+  let startIdx = minPoPeriod ? sortedPeriods.indexOf(minPoPeriod) : -1;
+  if (startIdx === -1) startIdx = Math.max(0, sortedPeriods.length - (gran === 'year' ? 8 : 24));
+  startIdx = Math.max(0, startIdx - (gran === 'year' ? 0 : 2));
+  const periods = sortedPeriods.slice(startIdx);
 
-  const bySize = {};
-  poPoints.forEach(p => {
-    const k = String(p.size);
-    if (!bySize[k]) bySize[k] = [];
-    bySize[k].push(p);
+  const periodIndex = {};
+  periods.forEach((p,i) => periodIndex[p] = i);
+  const copperLineData = periods.map((p,i) => ({ x: i, y: (copperByPeriod[p] !== undefined ? copperByPeriod[p] : null) }));
+
+  const groups = {};
+  poPoints.forEach(p => { (groups[p.period] = groups[p.period] || []).push(p); });
+  const byBrand = {};
+  Object.keys(groups).forEach(period => {
+    const base = periodIndex[period];
+    if (base === undefined) return;
+    const items = groups[period];
+    const n = items.length;
+    items.forEach((p, j) => {
+      const jitter = n > 1 ? (j - (n-1)/2) * 0.18 : 0;
+      (byBrand[p.brand] = byBrand[p.brand] || []).push({ x: base + jitter, y: p.normPrice, _name: p.name, _size: p.size, _price: p.price, _monthKey: p.monthKey });
+    });
   });
-  const scatterDatasets = Object.keys(bySize).sort().map(sizeKey => ({
-    type: 'line',
-    label: 'สาย ' + sizeKey + 'mm² (บาท/m ÷ ' + sizeKey + ')',
-    data: labels.map(lab => {
-      const hit = bySize[sizeKey].find(p => p.monthKey === lab);
-      return hit ? hit.normPrice : null;
-    }),
+
+  const brandNames = Object.keys(byBrand).sort();
+  const scatterDatasets = brandNames.map(b => ({
+    type: 'scatter',
+    label: b,
+    data: byBrand[b],
     showLine: false,
     pointRadius: 6, pointHoverRadius: 8,
-    borderColor: SIZE_COLORS[sizeKey] || '#a0aec0',
-    backgroundColor: SIZE_COLORS[sizeKey] || '#a0aec0',
+    pointStyle: 'rectRot',
+    borderColor: BRAND_COLORS[b] || '#a0aec0',
+    backgroundColor: BRAND_COLORS[b] || '#a0aec0',
     yAxisID: 'y1',
   }));
 
   const datasets = [
     {
       type: 'line',
-      label: 'ราคาทองแดง LME (USD/ton)',
-      data: copperLine,
+      label: gran === 'year' ? 'ราคาทองแดง LME (USD/ton) เฉลี่ยรายปี' : 'ราคาทองแดง LME (USD/ton)',
+      data: copperLineData,
       borderColor: '#c0392b',
       backgroundColor: 'transparent',
       borderWidth: 2.5,
@@ -544,7 +583,6 @@ function renderPricePanel() {
     ...scatterDatasets
   ];
 
-  // ความสัมพันธ์: ใช้ทุกขนาด (ไม่กรอง) เพื่อให้ค่า r นิ่ง ไม่ขยับตาม filter
   const allPoints = pricePO.map(po => {
     const size = parseCableSizeNum(po['ขนาดสาย']);
     const price = parseNum(po['ราคาล่าสุด (บาท/m)']);
@@ -562,17 +600,16 @@ function renderPricePanel() {
     insightHtml = `<div class="alert" style="background:#ebf8ff;border-color:#90cdf4;color:#2c5282">
       💡 <b>ความสัมพันธ์ราคาทองแดง ↔ ราคาซื้อสาย DC จริง:</b> r = ${r.toFixed(2)} (${strength}, ${direction})
       — คำนวณจาก ${allPoints.length} จุดข้อมูล (ราคา/mm² เทียบราคาทองแดงเดือนเดียวกัน)<br>
-      <span style="font-size:11px;opacity:0.85">หมายเหตุ: ข้อมูลจาก Item Master เป็น "ราคาล่าสุด" ต่อ vendor ไม่ใช่ประวัติทุกครั้งที่ซื้อ — ราคาสายมักไม่ pass-through ตามตลาดทองแดงทันที เพราะมีต้นทุนอื่นปนและ vendor ล็อกราคาตามสัญญา</span>
+      <span style="font-size:11px;opacity:0.85">จุดบนกราฟคือราคาที่ซื้อจริงแต่ละรายการ (ไม่เฉลี่ย) แยกสีตามแบรนด์ — ราคาสายมักไม่ pass-through ตามตลาดทองแดงทันที เพราะมีต้นทุนอื่นปนและ vendor ล็อกราคาตามสัญญา</span>
     </div>`;
   }
 
   const historyRows = [...pricePO].sort((a,b) => String(b['วันที่ซื้อล่าสุด']).localeCompare(String(a['วันที่ซื้อล่าสุด']))).map(po => {
-    const brand = String(po['แบรนด์ (สันนิษฐาน)'] || 'Other');
-    const brandKey = Object.keys(BRAND_COLORS).find(k => brand.toLowerCase().includes(k.toLowerCase())) || 'Other';
+    const brandKey = brandOf(po);
     return `<tr>
       <td>${esc(po['วันที่ซื้อล่าสุด'])}</td>
       <td>${esc(po['ชื่อสินค้า'])}</td>
-      <td><span class="brand-tag" style="background:${BRAND_COLORS[brandKey]}">${esc(brand)}</span></td>
+      <td><span class="brand-tag" style="background:${BRAND_COLORS[brandKey]}">${esc(String(po['แบรนด์ (สันนิษฐาน)']||'Other'))}</span></td>
       <td>${esc(po['ขนาดสาย'])}</td>
       <td>${esc(po['Vendor'])}</td>
       <td class="num">${fmtNum(po['ราคาล่าสุด (บาท/m)'])}</td>
@@ -590,21 +627,55 @@ function renderPricePanel() {
   if (priceChartInstance) priceChartInstance.destroy();
   const ctx = document.getElementById('price-chart').getContext('2d');
   priceChartInstance = new Chart(ctx, {
-    data: { labels: labels.map(monthKeyLabel), datasets },
+    data: { datasets },
     options: {
       responsive: true, maintainAspectRatio: false,
-      interaction: { mode: 'nearest', intersect: false },
+      interaction: { mode: 'nearest', intersect: true },
       scales: {
+        x: {
+          type: 'linear',
+          min: 0, max: Math.max(periods.length - 1, 0.001),
+          ticks: {
+            stepSize: 1,
+            callback: function(val) {
+              const p = periods[Math.round(val)];
+              return (p && Math.abs(val - Math.round(val)) < 0.01) ? periodLabel(p, gran) : '';
+            }
+          }
+        },
         y: { position: 'left', title: { display: true, text: 'ทองแดง USD/ton' } },
         y1: { position: 'right', title: { display: true, text: 'บาท/m ÷ ขนาด(mm²)' }, grid: { drawOnChartArea: false } }
       },
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }
+      plugins: {
+        legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } },
+        tooltip: {
+          callbacks: {
+            title: function(items) {
+              const it = items[0];
+              if (it.dataset.type === 'scatter') return it.raw._name;
+              const p = periods[Math.round(it.parsed.x)];
+              return p ? periodLabel(p, gran) : '';
+            },
+            label: function(item) {
+              if (item.dataset.type === 'scatter') {
+                const rw = item.raw;
+                return ['วันที่ซื้อ: ' + rw._monthKey, 'ราคา: ' + rw._price + ' บาท/m (' + rw._size + ' mm²)', '= ' + rw.y.toFixed(3) + ' บาท/mm²'];
+              }
+              return 'ราคาทองแดง: ' + item.parsed.y;
+            }
+          }
+        }
+      }
     }
   });
 }
 
 function onSizeFilterChange(val) {
   currentSizeFilter = val;
+  renderPricePanel();
+}
+function onGranFilterChange(val) {
+  currentGranFilter = val;
   renderPricePanel();
 }
 
@@ -789,6 +860,12 @@ function renderAll(liveData, isLive) {
             <option value="6">เบอร์ 6</option>
             <option value="10">เบอร์ 10</option>
             <option value="16">เบอร์ 16</option>
+          </select>
+        </label>
+        <label>มุมมอง:
+          <select id="price-gran-filter" onchange="onGranFilterChange(this.value)">
+            <option value="month">รายเดือน</option>
+            <option value="year">รายปี</option>
           </select>
         </label>
       </div>
