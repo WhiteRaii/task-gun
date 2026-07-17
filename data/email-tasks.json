@@ -1,98 +1,84 @@
 {
-  "date": "2026-07-15",
-  "generated_at": "2026-07-15T07:05:00",
+  "date": "2026-07-17",
+  "generated_at": "2026-07-17T07:10:00",
   "notices": [
     {
-      "id": "notice_20260715_001",
-      "from": "rada@gunkul.com",
-      "subject": "Re: PFS2 : RFQ for Engineering License",
-      "note": "แจ้งว่าเปิด PR ให้แล้ว (PR NO: CCPUPRV-003478) — งานของทีม ไม่เกี่ยวกับ White โดยตรง"
-    },
-    {
-      "id": "notice_20260715_002",
+      "id": "notice_20260717_001",
       "from": "pastraporn.iss@gunkul.com",
       "subject": "<<< Urgent >>> รบกวนเสนอราคา โครงการ Triumph",
-      "note": "พี่เก๋ขอราคาโครงการ Triumph จาก Supplier โดยตรง White ถูก CC ไว้เฉยๆ"
+      "note": "พี่เก๋ขอราคาโครงการ Triumph จาก Siriprapa — ได้รับใบเสนอราคากลับมาแล้ว (White ถูก CC)"
     },
     {
-      "id": "notice_20260715_003",
+      "id": "notice_20260717_002",
+      "from": "wanvisa.inm@gunkul.com",
+      "subject": "Re: Re: <<URGENT>> PO#THPO26-000134 FNC-GULF1",
+      "note": "พี่แคมประสานงาน LC/เรือกับ Sungrow — เรือ delay เปลี่ยนเป็น ETD 27 ก.ค. (White ถูก CC)"
+    },
+    {
+      "id": "notice_20260717_003",
       "from": "pastraporn.iss@gunkul.com",
       "subject": "Re: MRTN2 : สอบราคา DB ของโครงการ Murata Newland Phase 2",
-      "note": "พี่เก๋ส่งใบเสนอราคาแก้ไขให้เจนจิรา — งานของพี่เก๋ White ถูก CC ไว้"
+      "note": "พี่เก๋ประสาน comment แก้ไขตู้ DB กับผู้รับเหมาและทีม engineer (White ถูก CC)"
     },
     {
-      "id": "notice_20260715_004",
+      "id": "notice_20260717_004",
       "from": "pastraporn.iss@gunkul.com",
-      "subject": "Purchase Order No. CCPO26-001280_GUE",
-      "note": "พี่เก๋ส่ง PO งานติดตั้งไฟฟ้าโซลาร์ (กรมคนพิการ) ให้ปัณณวัฒน์ White ถูก CC ไว้"
+      "subject": "Purchase Order No.CDPO26-000390_GSC_โครงการ Groof",
+      "note": "พี่เก๋ส่ง PO ให้ Thaipower สำหรับตู้ไฟโครงการ Groof (White ถูก CC)"
     },
     {
-      "id": "notice_20260715_005",
-      "from": "anuwat.kan@gunkul.com",
-      "subject": "Re: TYB: RFQ วิศวกรโครงการยื่น อ.1 และ อ.5",
-      "note": "อัปเดต BOQ Budget โครงการทุ่งใหญ่การยาง — Rada เปิด PR ให้แล้ว, White CC เฉยๆ"
+      "id": "notice_20260717_005",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Purchase Order No. CDPO26-000391_GSC_โครงการ SJ apartment",
+      "note": "พี่เก๋ส่ง PO ให้ Thaipower สำหรับโครงการ SJ apartment (White ถูก CC)"
     },
     {
-      "id": "notice_20260715_006",
-      "from": "anuwat.kan@gunkul.com",
-      "subject": "Re: TYB: RFQ งานสำรวจสภาพชั้นดิน...",
-      "note": "อัปเดต RFQ งานสำรวจดิน โครงการทุ่งใหญ่การยาง — White CC เฉยๆ"
+      "id": "notice_20260717_006",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Re: [เร่งด่วน] ขอรบกวนจัดซื้อออก PO สายไฟโครงการคุณสุธัช (PR CDPUPRV-001230)",
+      "note": "พี่เก๋ประสาน Supplier ส่งของหน้างานเรียบร้อย กำหนดส่ง 17/7/69 (White ถูก CC)"
     },
     {
-      "id": "notice_20260715_007",
-      "from": "nopparat.npelectric17@gmail.com",
-      "subject": "Re: นำส่ง Comment - โครงการ Murata Newland Phase 2",
-      "note": "Vendor ส่งราคาแก้ไขครั้งที่ 1 ให้พี่เก๋ — White CC เฉยๆ"
+      "id": "notice_20260717_007",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Re: LPP2-1 : สอบราคา DB ของโครงการ LEE FEED MILL",
+      "note": "พี่เก๋นำส่งใบเสนอราคา DB เจ้าแรกให้ทีม engineer (White ถูก CC)"
     },
     {
-      "id": "notice_20260715_008",
-      "from": "jullajit@sunforson.com",
-      "subject": "Re: ขอใบเสนอราคา - งานโครงสร้าง PV Mounting (Ground Mounting) โครงการ BKK Bank",
-      "note": "Sunforson รับทราบ RFQ แล้ว จะส่งราคาภายใน 17/7/26 — ยังไม่ต้องดำเนินการเพิ่ม"
-    },
-    {
-      "id": "notice_20260715_009",
-      "from": "tanatad.hakun@prysmian.com",
-      "subject": "RE: ขอใบเสนอราคา - สายไฟ DC Solar เบอร์ 4, 6, 10",
-      "note": "Prysmian ส่งใบเสนอราคาสายไฟ DC มาแล้ว White รับทราบและตอบขอบคุณแล้ว"
-    },
-    {
-      "id": "notice_20260715_010",
-      "from": "thailandbrilliance@gmail.com",
-      "subject": "Re: [Urgent] ขอเรียนเชิญเสนอราคา Mounting โครงการกรมส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ",
-      "note": "I Everbright ส่งใบเสนอราคา Mounting มาแล้ว White รับทราบแล้ว"
-    },
-    {
-      "id": "notice_20260715_011",
-      "from": "meetingroom@gunkul.com",
-      "subject": "ยกเลิกกิจกรรมแล้ว: Meeting W/Supplier Panel",
-      "note": "การประชุม Meeting W/Supplier Panel วันที่ 14 ก.ค. ถูกยกเลิกแล้ว"
-    },
-    {
-      "id": "notice_20260715_012",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "FYI : แจ้งแนวทางการเปิด PR สั่งซื้อกระดาษ ของใช้ส่วนกลาง และอุปกรณ์สำนักงาน (แบบราย 3 เดือน)",
-      "note": "แจ้งแนวทางใหม่ให้เปิด PR แบบราย 3 เดือนสำหรับของใช้สำนักงาน เริ่มใช้ทันที — งานประกาศของฝ่ายจัดซื้อ"
-    },
-    {
-      "id": "notice_20260715_013",
-      "from": "bee@sunforson.com",
-      "subject": "Re:Fwd: MRTN2 : สอบราคา Mounting Rapid shutdown",
-      "note": "Sunforson ส่งใบเสนอราคา Mounting Rapid Shutdown มาแล้ว White ได้ forward ให้เจนจิราแล้ว"
-    },
-    {
-      "id": "notice_20260715_014",
-      "from": "g_purchase@gunkul.com",
-      "subject": "⚠️พนักงานคลิกครั้งเดียว องค์กรอาจเสียหายทั้งระบบ",
-      "note": "อีเมลแจ้งเตือนความปลอดภัยไซเบอร์ทั่วไปถึงฝ่ายจัดซื้อ ไม่ใช่คำขอเฉพาะของ White"
+      "id": "notice_20260717_008",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Re: KT.1 : สอบราคา AC Cable",
+      "note": "พี่เก๋ตอบราคาสายไฟ AC Cable (LOI, BCC) ให้คุณนพรัตน์ โครงการ Krungthai Food (White ถูก CC)"
     }
   ],
   "tasks": [
     {
-      "id": "email_20260715_001",
-      "priority": 1,
-      "description": "ตอบคำถามเพิ่มเติมให้ TRP (คุณคัณพจน์) เรื่อง RFQ สายไฟ DC Solar เบอร์ 4,6,10 — ระบุปริมาณที่ใช้, ช่วงเวลาเริ่ม-สิ้นสุดงาน และสถานที่จัดส่ง (กทม./ปริมณฑล/ต่างจังหวัด) เพื่อให้ TRP เสนอราคากลับมาได้",
-      "from": "kanphoj@trp.co.th",
+      "id": "email_20260717_001",
+      "priority": 2,
+      "description": "เตรียมข้อมูลวิเคราะห์สาเหตุที่แพ้ประมูลเทนเดอร์ธนาคารกรุงไทย — ต้องส่งข้อมูล BLQ และราคาที่ยื่นประกอบการวิเคราะห์ (สรุปจากที่ประชุม Weekly GSC-PU)",
+      "from": "executiveassistant@e.read.ai",
+      "subject": "🗓 Weekly meeting : GSC - PU on July 16, 2026 @ 1:30 PM | Read Meeting Report",
+      "deadline": null,
+      "project": "GSC-PU — เทนเดอร์ธนาคารกรุงไทย",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260717_002",
+      "priority": 2,
+      "description": "ส่งรายละเอียดเพิ่มเติม (รูปแบบการติดตั้งและข้อมูลด้าน Engineering) ให้ Suzaku เพื่อประกอบใบเสนอราคางาน EE",
+      "from": "thawan@suzaku.co.th",
+      "subject": "RE: ขอใบเสนอราคาผู้รับเหมางานติดตั้ง EE – โครงการ บริษัท ชาไทย อินเตอร์เนชั่นแนล จำกัด สาขาเชียงราย",
+      "deadline": null,
+      "project": "ชาไทย อินเตอร์เนชั่นแนล เชียงราย (Solar Rooftop 711.36 kWp)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260717_003",
+      "priority": 2,
+      "description": "พิจารณาใบเสนอราคาสายไฟ DC Solar (เบอร์ 4, 6, 10) ที่ TRP ส่งมาสำหรับสต๊อก",
+      "from": "sales-wr@trp.co.th",
       "subject": "Re: ขอใบเสนอราคา - สายไฟ DC Solar เบอร์ 4, 6, 10 (สำหรับสต๊อก)",
       "deadline": null,
       "project": "สายไฟ DC Solar (สต๊อก)",
@@ -100,13 +86,13 @@
       "type": "email"
     },
     {
-      "id": "email_20260715_002",
+      "id": "email_20260717_004",
       "priority": 2,
-      "description": "พิจารณาใบเสนอราคาหม้อแปลงไฟฟ้า 3000 kVA จาก QTC Energy ที่ส่งมา เพื่อเปรียบเทียบและตัดสินใจ",
-      "from": "teerapol.p@qtc-energy.com",
-      "subject": "Re: ขอใบเสนอราคา (RFQ) - Transformer 3,000 kVA 22kV/400-230V",
-      "deadline": "17-07-2026",
-      "project": "Transformer 3,000 kVA (ปรับขนาดจาก 3500 kVA)",
+      "description": "ตรวจสอบและดำเนินการใบแจ้งหนี้ (invoice) จาก Sunforson สำหรับ PO CCPO26-001299 Lot 1 และ Lot 2 ที่ส่งของครบแล้ว",
+      "from": "bee@sunforson.com",
+      "subject": "Re:Purchase Order No. [CCPO26-001299-1] - อุปกรณ์ Mounting โครงการ SPR",
+      "deadline": null,
+      "project": "SPR Mounting",
       "is_fyi": false,
       "type": "email"
     }
