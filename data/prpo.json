@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T07:08:47",
+  "generated_at": "2026-07-18T09:04:49",
   "source_file": "Google Sheet: Gunkul PR / PA / PO Tracking (tab: PWhite, live)",
   "tasks": [
     {
@@ -551,7 +551,7 @@
       "date_pr": "05/06/2026",
       "date_pa_approved": null,
       "deadline": null,
-      "remarks": "แก้ไข Acconting date จากพี่สุ"
+      "remarks": null
     },
     {
       "id": "CCPUPRV-003433",
@@ -561,7 +561,7 @@
       "po_no": null,
       "description": "งานจ้าง Clearing Site Thungyai",
       "project": "SP038 SOLAR FARM THUNGYAI RUBBER 2,316.60 kWp",
-      "status": "Draft",
+      "status": "Pending PA Approval",
       "category": "no_pa",
       "company": "GUE",
       "dept": null,
@@ -633,11 +633,11 @@
       "id": "SBPUPRV-000156",
       "no": 102,
       "pr_no": "SBPUPRV-000156",
-      "pa_no": null,
+      "pa_no": "SBRFC-000066",
       "po_no": null,
       "description": "Rapid Shutdown Murata Newland Phase2",
       "project": "SR286 SOLAR ROOFTOP MURATA NEW LAND PHASE2 921.30",
-      "status": "Draft",
+      "status": "Pending PA Approval",
       "category": "no_pa",
       "company": "GSP1",
       "dept": null,
