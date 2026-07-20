@@ -1,100 +1,157 @@
 {
-  "date": "2026-07-19",
-  "generated_at": "2026-07-19T15:31:00",
+  "date": "2026-07-20",
+  "generated_at": "2026-07-20T21:15:00",
   "notices": [
     {
-      "id": "notice_20260719_001",
-      "from": "wanvisa.inm@gunkul.com",
-      "subject": "Re: GEYA-CI, Packing list for Gunkul Solar_ PO#CDPO26-000378",
-      "note": "Wanvisa แจ้ง Vendor (GEYA) เรื่อง Incoterms EXW ไม่ต้องคิดค่าขนส่ง ให้แก้ราคาตาม PO — งานของ Wanvisa เอง White ถูก CC"
+      "id": "notice_20260720_001",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "รบกวนเสนอราคางานจ้างผรมติดตั้งลูกปูน+โซลาร์ โครงการนายสุธัช เรืองสุทธิภาพ (Baan Mueangthong)",
+      "note": "P'Kae ส่งขอราคาตรงถึงผู้รับเหมา 3 ราย (คุณธนิน, คุณจักร, คุณสุรพงษ์) เอง — White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260720_002",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "รบกวนขอใบเสนอราคา กล่องสวิทซ์ดอกเห็ด 40 mm. รุ่น XALK178 จำนวน 200 SET",
+      "note": "P'Kae ขอใบเสนอราคาตรงถึงเวนเดอร์ Schneider Electric เอง — White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260720_003",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Purchase Order No.CDPO26-000395, CDPO26-000396_GSC",
+      "note": "P'Kae ส่ง PO ตรงถึงผู้รับเหมา (บุญทวีชัย) เอง งานติดตั้งโครงสร้าง/ลูกปูน — White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260720_004",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Purchase Order No.CDPO26-000397_GSC_งานจ้างติดตั้งโครงการ Groof จำนวน 3 โครงการ",
+      "note": "P'Kae ส่ง PO ตรงถึงผู้รับเหมา (k.c.ecoenergy) เอง — White ถูก CC ไว้เท่านั้น"
+    },
+    {
+      "id": "notice_20260720_005",
+      "from": "pastraporn.iss@gunkul.com",
+      "subject": "Purchase Order No.CCPO26-001297_GUE_ค่าบริการจัดจ้างทำประชาพิจารณ์ โครงการ SHUNYI",
+      "note": "P'Kae ส่ง PO ตรงถึงผู้รับจ้าง (pacificlab) เอง — White ถูก CC ไว้เท่านั้น"
     }
   ],
   "tasks": [
     {
-      "id": "email_20260719_001",
-      "priority": 2,
-      "description": "รีวิวใบเสนอราคาจากผู้ผลิต/ผู้ขาย บริษัท ไฟน์ไลน์ แอนด์ กราฟ ที่ส่งเข้ากล่องกลาง g_purchase",
-      "from": "g_purchase@gunkul.com",
-      "subject": "ใบเสนอราคาค่ะ",
+      "id": "email_20260720_001",
+      "priority": 1,
+      "description": "สอบราคาจ้างผรม.งานระบบน้ำและบันได โครงการ Nippon (Groof) ให้ Groof ทำ Budget ขายงาน — มีไฟล์แนบสเปกงานส่งมาแล้ว",
+      "from": "thofan.thu@gunkul.com",
+      "subject": "รบกวนสอบราคางานจ้างผรม.ระบบน้ำและบันได โครงการ nippon ค่ะ",
+      "deadline": "23-07-2026",
+      "project": "Nippon (Groof)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260720_002",
+      "priority": 1,
+      "description": "เร่งติดตามผู้รับเหมา 2 ราย (GGC, All Energy) เข้าเก็บ Defect List 4 โครงการ MegaHome Phase4 (บางพลี, ติวานนท์, นครปฐม, ขอนแก่น) — ลูกค้าเริ่มไม่พอใจ หากล่าช้ามีผลกระทบการขอคืน BG",
+      "from": "rajcharat.yee@gunkul.com",
+      "subject": "Re: Defect List MegaHome 4 Project",
+      "deadline": "ด่วนที่สุด",
+      "project": "MegaHome Phase4 (Homepro)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260720_003",
+      "priority": 1,
+      "description": "สอบราคาและขอใบเสนอราคา PV Mounting เพิ่มเติมสำหรับติดตั้งหน้างาน — SFS-LFN2-01 250 ea., SFS-LFN2-T15 170 ea., SFS-TRG-15 170 ea.",
+      "from": "uae.khe@gunkul.com",
+      "subject": "HCT : สอบราคา PV Mounting เพื่อสั่งซื้ออุปกรณ์เพิ่ม ของโครงการ Hon Chuan (Thailand) Co., Ltd.",
       "deadline": null,
+      "project": "Hon Chuan (Thailand) Co., Ltd. (HCT)",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260720_004",
+      "priority": 2,
+      "description": "รวบรวมใบเสนอราคาหม้อแปลง 3,000 kVA 22kV/400-230V เพื่อเปรียบเทียบ — QTC Energy ส่งราคามาแล้ว (2 ครั้ง), รอ Ekarat และรายอื่นที่ยังไม่ตอบกลับ",
+      "from": "teerapol.p@qtc-energy.com",
+      "subject": "Fw: ขอใบเสนอราคา (RFQ) - Transformer 3,000 kVA 22kV/400-230V",
+      "deadline": null,
+      "project": "Transformer 3,000 kVA",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260720_005",
+      "priority": 2,
+      "description": "สอบราคาอัพเดทจากผรม. โครงการ Greater Pharma (Rooftop+Carport 635.74 kWp) งาน EE&CV — ต้นทุนที่คาดหวัง 6.5 THB/W มีไฟล์ BOM/DWG/Survey แนบมาแล้ว",
+      "from": "jirachawin.pro@gunkul.com",
+      "subject": "Re: [Tender - PU] ขอราคา ผรม. สำหรับงานโครงการ Greater Pharma",
+      "deadline": null,
+      "project": "Greater Pharma",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260720_006",
+      "priority": 2,
+      "description": "รีวิวยืนยัน Unit Cost ใน BOQ PM โครงการ TME ก่อนส่งขออนุมัติ",
+      "from": "nopparat.dee@gunkul.com",
+      "subject": "TME-BOQ Budget Approve",
+      "deadline": null,
+      "project": "TME",
+      "is_fyi": false,
+      "type": "email"
+    },
+    {
+      "id": "email_20260720_007",
+      "priority": 3,
+      "description": "อบรมความรู้เพิ่มเติมเรื่องความเสี่ยงจากการป้องกันอัตราแลกเปลี่ยน (จุดซื้อถึงจุดจ่ายชำระ) โดยอาจารย์สมบูรณ์ เวลา 10.30-12.00 น.",
+      "from": "nathanun_gke@gunkul.com",
+      "subject": "Fwd: อบรมความเสี่ยงจากการป้องกันอัตราแลกเปลี่ยนจุดซื้อถึงจุดจ่ายชำระ",
+      "deadline": "23-07-2026",
       "project": null,
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260719_002",
-      "priority": 2,
-      "description": "รวบรวม/เปรียบเทียบใบเสนอราคาผู้รับเหมางานติดตั้ง EE โครงการชาไทย อินเตอร์เนชั่นแนล สาขาเชียงราย จาก 2 ราย — Kriengsak (081-8128550) และ ASIA Solutions (Adisorn)",
-      "from": "kthonthan@gmail.com, adisorn.o@asia-groups.com",
-      "subject": "ขอใบเสนอราคาผู้รับเหมางานติดตั้ง EE – โครงการ บริษัท ชาไทย อินเตอร์เนชั่นแนล จำกัด สาขาเชียงราย",
-      "deadline": null,
-      "project": "ชาไทย อินเตอร์เนชั่นแนล เชียงราย (Solar Rooftop 711.36 kWp)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260719_003",
-      "priority": 2,
-      "description": "พิจารณา BOQ โครงการ Thai Ausnor ที่ ASIA Solutions (Adisorn) ส่งมา",
-      "from": "adisorn.o@asia-groups.com",
-      "subject": "ขอใบเสนอราคา – โครงการ Thai Ausnor (Solar Rooftop 364.32 kWp)",
-      "deadline": null,
-      "project": "Thai Ausnor (364.32 kWp)",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260719_004",
-      "priority": 2,
-      "description": "รีวิวใบเสนอราคาหม้อแปลง 3,000 kVA 22kV/400-230V จากเอกรัฐ สำหรับโครงการ Triumph (ส่งครบตามกำหนดแล้ว)",
-      "from": "yannasit@ekarat.co.th",
-      "subject": "Re: ขอใบเสนอราคา (RFQ) - Transformer 3,000 kVA 22kV/400-230V",
-      "deadline": null,
-      "project": "Triumph",
-      "is_fyi": false,
-      "type": "email"
-    },
-    {
-      "id": "email_20260719_005",
+      "id": "email_20260720_008",
       "priority": 3,
-      "description": "พิจารณาข้อมูลผู้ผลิตสายเคเบิลรายใหม่ (หลินนิตี้ อินเตอร์เนชั่นแนล ประเทศไทย) ที่นำเสนอเข้า g_purchase",
-      "from": "g_purchase@gunkul.com",
-      "subject": "นำเสนอผลิตภัณฑ์สายเคเบิล / บริษัท หลินนิตี้ อินเตอร์เนชั่นแนล (ประเทศไทย) จำกัด",
-      "deadline": null,
+      "description": "เข้าร่วมประชุม Process Improvement Meeting #3 (Procurement Staff Training Module) เวลา 13:30-16:00 น.",
+      "from": "tanakorn.sanee@gmail.com",
+      "subject": "Meeting Invitation - Process Improvement Meeting #3",
+      "deadline": "21-07-2026",
       "project": null,
       "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260719_006",
+      "id": "email_20260720_009",
       "priority": 3,
-      "description": "Pannawat ขอใบเสนอราคาโครงการ Shunyi (4397.40 kWp) จาก ASIA Solutions — deadline ที่ขอผู้รับเหมาคือ 22-07-2026",
-      "from": "pannawat.cha@gunkul.com",
-      "subject": "รบกวนเสนอราคาโครงการ Shunyi",
+      "description": "เข้าร่วมประชุม Meeting W/ Nadee (STA พม่า) จัดโดยคุณปัณณวัชร์ ห้อง Wisdom ชั้น 42 เวลา 10:00-12:00 น.",
+      "from": "meetingroom@gunkul.com",
+      "subject": "คำเชิญ: Meeting W/ Nadee (STA พม่า)",
       "deadline": "22-07-2026",
-      "project": "Shunyi (4397.40 kWp)",
-      "is_fyi": true,
+      "project": null,
+      "is_fyi": false,
       "type": "email"
     },
     {
-      "id": "email_20260719_007",
+      "id": "email_20260720_010",
       "priority": 3,
-      "description": "Pannawat ขอให้ทีม Engineering review scope ผรม. โครงการ One Venture — ฝั่งโครงการตอบ confirm scope ตาม BOQ และให้ award subcontract ได้เลย",
+      "description": "รับทราบ: คุณปัณณวัชร์นำส่ง BOQ โครงการ SYS ให้พี่อั๋นตามที่ร้องขอในที่ประชุม (BTC, JKS, KTS88, PJI, Unigreen, MOSS) — White ถูก CC ไว้เพื่อรับทราบ",
       "from": "pannawat.cha@gunkul.com",
-      "subject": "รบกวน Review Scope ผรม One Venture",
+      "subject": "นำส่ง BOQ โครงการ SYS",
       "deadline": null,
-      "project": "One Venture",
+      "project": "SYS",
       "is_fyi": true,
       "type": "email"
     },
     {
-      "id": "email_20260719_008",
+      "id": "email_20260720_011",
       "priority": 3,
-      "description": "หัวหน้า Thanathip ส่ง RFQ โครงการ CJx (34.32 kWp, 3 Phase) ให้ผู้รับเหมา 3 ราย (บุญทวีชัย, ธนิน, KCE) ขอราคากลับภายในวันอังคาร — White ถูก CC เพื่อรับทราบ",
+      "description": "รับทราบ: ผู้รับเหมา 2 ราย (คุณธนิน, บุญทวีชัย เอ็นจิเนียริ่ง) ส่งใบเสนอราคากลับมาแล้วสำหรับ RFQ โครงการ CJx 34.32 kWp (คุณธนาธิปเป็นผู้ขอราคา) — White ถูก CC ไว้เพื่อรับทราบ",
       "from": "thanathip.won@gunkul.com",
       "subject": "RFQ : โครงการ CJx 34.32 kWp.3Ph - Q3",
       "deadline": null,
-      "project": "CJx (34.32 kWp)",
+      "project": "CJx 34.32 kWp",
       "is_fyi": true,
       "type": "email"
     }
